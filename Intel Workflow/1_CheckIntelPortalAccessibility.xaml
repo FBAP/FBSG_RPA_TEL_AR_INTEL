@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CheckIntelPortalAccessibility" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="639.333333333333,1332.66666666667" sap2010:WorkflowViewState.IdRef="LoginWorkflow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CheckIntelPortalAccessibility" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="676,1405.33333333333" sap2010:WorkflowViewState.IdRef="LoginWorkflow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
       <x:String>System.Activities</x:String>
@@ -64,59 +64,67 @@
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Sequence - CheckIntelPortalAccessibility" sap:VirtualizedContainerService.HintSize="589.333333333333,1268" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to check the INTEL portal accessibility" DisplayName="Sequence - CheckIntelPortalAccessibility" sap:VirtualizedContainerService.HintSize="589.333333333333,1340.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch -CheckIntelPortalAccessibility" sap:VirtualizedContainerService.HintSize="547.333333333333,1176" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch -CheckIntelPortalAccessibility" sap:VirtualizedContainerService.HintSize="547.333333333333,1218" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="CheckIntelPortalAccessibility" sap:VirtualizedContainerService.HintSize="508.666666666667,938" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="CheckIntelPortalAccessibility" sap:VirtualizedContainerService.HintSize="508.666666666667,980" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Default="https://signin.intel.com/?appid=410&amp;TYPE=33554433&amp;REALMOID=06-aeaf87b2-9c7b-4c2a-a9fe-0e5fa24cd48d&amp;GUID=&amp;SMAUTHREASON=0&amp;METHOD=GET&amp;SMAGENTNAME=$SM$h3dLlf1eWC3K3fCnb1bhr7hquzmcYOFNQLwtqUM3KmYyWrF5VtQcfWLtvPrAGCI%2b&amp;TARGET=$SM$https%3a%2f%2fsupplier%2eintel%2ecom%2fSupplierHub%2fApp%2fUserValidation%2easpx" Name="strIntelURL" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message - Check Intel Portal Accessibility workflow started" sap:VirtualizedContainerService.HintSize="466.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Check Intel Portal Accessibility Workflow Started&quot;]" />
-          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="This activity opens Intel web portal on the chrome browser." BrowserType="Chrome" DisplayName="Open Browser: Intel Portal" sap:VirtualizedContainerService.HintSize="466.666666666667,753.333333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[strIntelURL]">
+          <ui:LogMessage DisplayName="Log Message - Check Intel Portal Accessibility workflow started" sap:VirtualizedContainerService.HintSize="466.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Check Intel Portal Accessibility Workflow Started&quot;]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="This activity opens Intel web portal on the chrome browser." BrowserType="Chrome" DisplayName="Open Browser: Intel Portal" sap:VirtualizedContainerService.HintSize="466.666666666667,795.333333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[strIntelURL]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,580" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <Sequence DisplayName="Do - Intel Portal" sap:VirtualizedContainerService.HintSize="376,622" sap2010:WorkflowViewState.IdRef="Sequence_7">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="boolLoginExists" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MaximizeWindow Window="{x:Null}" sap2010:Annotation.AnnotationText="Maximizes Intel portal " DisplayName="Maximize Window - Intel Portal" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2">
+                  <ui:MaximizeWindow Window="{x:Null}" sap2010:Annotation.AnnotationText="Maximizes Intel portal " DisplayName="Maximize Window - Intel Portal" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:MaximizeWindow>
-                  <ui:RetryScope sap2010:Annotation.AnnotationText="Retry scope added to check if login page exists. &#xA;If not, it retries for 3 times." DisplayName="Retry Scope: Intel Sign In" sap:VirtualizedContainerService.HintSize="200,114.666666666667" sap2010:WorkflowViewState.IdRef="RetryScope_3">
+                  <ui:RetryScope sap2010:Annotation.AnnotationText="Retry scope added to check if login page exists. &#xA;If not, it retries for 3 times." DisplayName="Retry Scope: Intel Sign In" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="RetryScope_3">
                     <ui:RetryScope.ActivityBody>
                       <ActivityAction>
                         <ui:RefreshBrowser Browser="{x:Null}" ContinueOnError="True" DisplayName="Refresh Browser: Sign In" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="RefreshBrowser_4" />
@@ -143,7 +151,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:RetryScope>
-                  <If sap2010:Annotation.AnnotationText="Checks if Intel portal Sign In page available or not,&#xA;If yes then it login into portal and if no then it throws exception" Condition="[boolLoginExists]" DisplayName="If : Intel Portal Sign In page exists" sap:VirtualizedContainerService.HintSize="200,148" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If sap2010:Annotation.AnnotationText="Checks if Intel portal Sign In page available or not,&#xA;If yes then it login into portal and if no then it throws exception" Condition="[boolLoginExists]" DisplayName="If : Intel Portal Sign In page exists" sap:VirtualizedContainerService.HintSize="334,148" sap2010:WorkflowViewState.IdRef="If_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -158,7 +166,7 @@
                       <Throw DisplayName="Throw: Intel Sign In page not available" Exception="[new SystemException(&quot;Intel Portal Sign In page not available&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
                     </If.Else>
                   </If>
-                  <ui:LogMessage DisplayName="Log Message CheckIntelPortalAccessibility workflow ended" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Check Intel Portal Accessibility Workflow Ended&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message CheckIntelPortalAccessibility workflow ended" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Check Intel Portal Accessibility Workflow Ended&quot;]" />
                 </Sequence>
               </ActivityAction>
             </ui:OpenBrowser.Body>
@@ -166,7 +174,7 @@
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:OpenBrowser>
