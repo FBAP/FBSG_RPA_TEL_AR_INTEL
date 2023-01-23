@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CreateNewInvoices" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="744,3118" sap2010:WorkflowViewState.IdRef="CreateNewInvoices_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CreateNewInvoices" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="637.333333333333,3078" sap2010:WorkflowViewState.IdRef="CreateNewInvoices_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
       <x:String>System.Activities</x:String>
@@ -63,14 +63,14 @@
       <AssemblyReference>NPOI</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to create new invoices and entering the PO number along with additional required data" DisplayName="Sequence - CreateNewInvoices" sap:VirtualizedContainerService.HintSize="556.666666666667,3053.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to create new invoices and entering the PO number along with additional required data" DisplayName="Sequence - CreateNewInvoices" sap:VirtualizedContainerService.HintSize="556.666666666667,3013.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - CreateNewInvoices" sap:VirtualizedContainerService.HintSize="514.666666666667,2916" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - CreateNewInvoices" sap:VirtualizedContainerService.HintSize="514.666666666667,2876" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -78,12 +78,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="CreateNewInvoices" sap:VirtualizedContainerService.HintSize="476,2678" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="CreateNewInvoices" sap:VirtualizedContainerService.HintSize="476,2638" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Default="7002350433" Name="strPONumber" />
             <Variable x:TypeArguments="x:String" Default="10051691" Name="strInvoiceNumber" />
-            <Variable x:TypeArguments="x:String" Default="19-Jan-2023" Name="strSupplierInvoiceDate" />
-            <Variable x:TypeArguments="x:String" Default="19-Jan-2023" Name="strShipServiceDate" />
+            <Variable x:TypeArguments="x:String" Name="strSupplierInvoiceDate">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:String">22-Jan-2023</Literal>
+              </Variable.Default>
+            </Variable>
+            <Variable x:TypeArguments="x:String" Name="strShipServiceDate">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:String">22-Jan-2023</Literal>
+              </Variable.Default>
+            </Variable>
             <Variable x:TypeArguments="x:String" Name="strExtractedSupplierDate" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
@@ -92,7 +100,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message CreateNewInvoices Workflow Started" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Create New Invoices Workflow Started&quot;]" />
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Click Create New Invoices" sap:VirtualizedContainerService.HintSize="434,518.666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="951534b1f374410c603ba11b4aea56d3" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Click Create New Invoices" sap:VirtualizedContainerService.HintSize="434,478.666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="951534b1f374410c603ba11b4aea56d3" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -201,7 +209,7 @@
                       <OutArgument x:TypeArguments="x:String">[strExtractedSupplierDate]</OutArgument>
                     </ui:GetValue.Value>
                   </ui:GetValue>
-                  <If Condition="[strExtractedSupplierDate = strSupplierInvoiceDate]" DisplayName="If - Extracted Supplier date is similar to the FlatFile date or Not" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[strExtractedSupplierDate = strSupplierInvoiceDate]" DisplayName="If - Extracted Supplier date is similar to the FlatFile date or Not" sap:VirtualizedContainerService.HintSize="798,412.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
