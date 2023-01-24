@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>753.333333333333,2014.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>753.333333333333,1974.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LoginIntelPortal_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -71,18 +71,19 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to login into the INTEL Portal" DisplayName="Sequence - LoginIntelPortal" sap:VirtualizedContainerService.HintSize="556.666666666667,1950" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to login into the INTEL Portal" DisplayName="Sequence - LoginIntelPortal" sap:VirtualizedContainerService.HintSize="556.666666666667,1910" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - LoginIntelPortal" sap:VirtualizedContainerService.HintSize="514.666666666667,1827.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - LoginIntelPortal" sap:VirtualizedContainerService.HintSize="514.666666666667,1787.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="LoginIntelPortal" sap:VirtualizedContainerService.HintSize="476,1589.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="LoginIntelPortal" sap:VirtualizedContainerService.HintSize="476,1549.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Default="casundrang" Name="strUserName" />
             <Variable x:TypeArguments="x:String" Default="Intel*po2022" Name="strPassword" />
@@ -94,7 +95,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message Intel Login Webpage workflow started" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Intel Login Webpage Workflow Started&quot;]" />
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser Intel Login Webpage" sap:VirtualizedContainerService.HintSize="434,1228" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7bf5296954568f50f8eb06d9023b8122" Selector="[String.Format(&quot;&lt;html app='{0}' title='Sign In' url='{1}' /&gt;&quot;, in_SelectorBrowserApp, in_SelectorBrowserUrl)]">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser Intel Login Webpage" sap:VirtualizedContainerService.HintSize="434,1188" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="7bf5296954568f50f8eb06d9023b8122" Selector="[String.Format(&quot;&lt;html app='{0}' title='Sign In' url='{1}' /&gt;&quot;, in_SelectorBrowserApp, in_SelectorBrowserUrl)]">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -138,7 +139,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:TypeInto>
                   <ui:LogMessage DisplayName="Log Message Click Sign In Button" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Click the Sign In button for Intel Login Webpage&quot;]" />
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="Click SIgn In Button" ClickType="CLICK_SINGLE" DisplayName="Click - Sign In Button" sap:VirtualizedContainerService.HintSize="334,136.666666666667" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="Click SIgn In Button" ClickType="CLICK_SINGLE" DelayMS="[CInt(io_Config(&quot;DelayAfter&quot;).ToString)]" DisplayName="Click - Sign In Button" sap:VirtualizedContainerService.HintSize="334,136.666666666667" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
