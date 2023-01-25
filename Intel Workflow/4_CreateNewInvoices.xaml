@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>986.666666666667,3526</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>986.666666666667,3726</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateNewInvoices_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -75,7 +75,6 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
@@ -84,7 +83,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to create new invoices and entering the PO number along with additional required data" DisplayName="Sequence - CreateNewInvoices" sap:VirtualizedContainerService.HintSize="996.666666666667,3461.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to create new invoices and entering the PO number along with additional required data" DisplayName="Sequence - CreateNewInvoices" sap:VirtualizedContainerService.HintSize="996.666666666667,3661.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -92,7 +91,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - CreateNewInvoices" sap:VirtualizedContainerService.HintSize="954.666666666667,3338.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - CreateNewInvoices" sap:VirtualizedContainerService.HintSize="954.666666666667,3538.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -100,7 +99,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="CreateNewInvoices" sap:VirtualizedContainerService.HintSize="916,3100.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="CreateNewInvoices" sap:VirtualizedContainerService.HintSize="916,3300.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="strPONumber" />
             <Variable x:TypeArguments="x:String" Name="strInvoiceNumber" />
@@ -161,11 +160,17 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:BrowserScope>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ReadFlatFile workflow" sap:VirtualizedContainerService.HintSize="560,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Other Wokflow\ReadFlatFile.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ReadFlatFile workflow" sap:VirtualizedContainerService.HintSize="874,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Other Wokflow\ReadFlatFile.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_DataExcel">
                 <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_FlatFileData" />
               </OutArgument>
+              <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
+                <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
+              </InOutArgument>
+              <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
+                <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
+              </InOutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -235,21 +240,21 @@
               </ActivityAction>
             </ui:ForEachRow.Body>
           </ui:ForEachRow>
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Create New Invoice" sap:VirtualizedContainerService.HintSize="874,1850.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="0bf6514c6c6c5d2181c234df78f94f85" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Create New Invoice" sap:VirtualizedContainerService.HintSize="874,2050.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="0bf6514c6c6c5d2181c234df78f94f85" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do - Create New Invoice" sap:VirtualizedContainerService.HintSize="376,1704.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Do - Create New Invoice" sap:VirtualizedContainerService.HintSize="473.333333333333,1904.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message - Entering PO Number" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Entering the PO Number&quot;]" />
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into Enter PO Number" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[dr_FlatFileInputData(&quot;PO Number&quot;).ToString]">
+                  <ui:LogMessage DisplayName="Log Message - Entering PO Number" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Entering the PO Number&quot;]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into Enter PO Number" EmptyField="True" sap:VirtualizedContainerService.HintSize="431.333333333333,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[dr_FlatFileInputData(&quot;PO Number&quot;).ToString]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b7a302db-85f5-46bc-ba85-6241a8880a91" InformativeScreenshot="dd8ea01999cd69fb94d5160041d9d606" Selector="&lt;webctrl tableRow='3' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -258,7 +263,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Create Button" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Create Button" sap:VirtualizedContainerService.HintSize="431.333333333333,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -277,8 +282,8 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:LogMessage DisplayName="Log Message - Entering Invoice Number" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Entering Invoice Number&quot;]" />
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into - Invoice Number" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[dr_FlatFileInputData(&quot;Invoice Num&quot;).ToString]">
+                  <ui:LogMessage DisplayName="Log Message - Entering Invoice Number" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Entering Invoice Number&quot;]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into - Invoice Number" EmptyField="True" sap:VirtualizedContainerService.HintSize="431.333333333333,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[dr_FlatFileInputData(&quot;Invoice Num&quot;).ToString]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a2ca436-d399-4bb8-9395-fb56312179a4" InformativeScreenshot="52a959ece1892389e8715741af27cfce" Selector="&lt;webctrl name='inv_id' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -287,8 +292,8 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message - Entering Supplier Invoice Date" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Extracting Supplier Invoice Date&quot;]" />
-                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text - Get Supplier Date" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                  <ui:LogMessage DisplayName="Log Message - Entering Supplier Invoice Date" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Extracting Supplier Invoice Date&quot;]" />
+                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text - Get Supplier Date" sap:VirtualizedContainerService.HintSize="431.333333333333,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
                     <ui:GetValue.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e15b57ab-09d1-4ddb-8e9b-93f299ceecd2" InformativeScreenshot="d62afc9fdaaa8a2fdfb3ae99726dd19e" Selector="&lt;webctrl tag='INPUT' rowName='Supplier Invoice Date*' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -303,7 +308,7 @@
                       <OutArgument x:TypeArguments="x:String">[strExtractedSupplierDate]</OutArgument>
                     </ui:GetValue.Value>
                   </ui:GetValue>
-                  <ui:MultipleAssign DisplayName="Multiple Assign - Convert FlatFile Date" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                  <ui:MultipleAssign DisplayName="Multiple Assign - Convert FlatFile Date" sap:VirtualizedContainerService.HintSize="431.333333333333,252.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -358,12 +363,12 @@
                     </ui:MultipleAssign.AssignOperations>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:MultipleAssign>
-                  <If Condition="[strExtractedSupplierDate = strConvertedSupplierInvoiceDate]" DisplayName="If - Extracted Supplier date is similar to the FlatFile date or Not" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[strExtractedSupplierDate = strConvertedSupplierInvoiceDate]" DisplayName="If - Extracted Supplier date is similar to the FlatFile date or Not" sap:VirtualizedContainerService.HintSize="431.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -394,7 +399,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:CommentOut DisplayName="Comment Out - Supplier Invoice Date" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut DisplayName="Comment Out - Supplier Invoice Date" sap:VirtualizedContainerService.HintSize="431.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                     <ui:CommentOut.Body>
                       <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text - Supplier Invoice Date" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[strConvertedSupplierInvoiceDate]">
                         <ui:SetValue.Target>
@@ -413,7 +418,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <ui:LogMessage DisplayName="Log Message - Entering Ship Service Date" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Entering Ship Service Date&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message - Entering Ship Service Date" sap:VirtualizedContainerService.HintSize="431.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Entering Ship Service Date&quot;]" />
                   <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text - Ship Service Date" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[strConvertedShipServiceDate]">
                     <ui:SetValue.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3aa4880a-de50-4f38-b325-231db9959dbd" InformativeScreenshot="76c319d670fa4225936ab19f398ed136" Selector="&lt;webctrl name='ship_dt' /&gt;" WaitForReady="COMPLETE">

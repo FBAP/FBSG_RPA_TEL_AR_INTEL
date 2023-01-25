@@ -71,7 +71,6 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="This workflow is used to login into the INTEL Portal" DisplayName="Sequence - LoginIntelPortal" sap:VirtualizedContainerService.HintSize="556.666666666667,1910" sap2010:WorkflowViewState.IdRef="Sequence_4">
@@ -84,10 +83,6 @@
     <TryCatch DisplayName="Try Catch - LoginIntelPortal" sap:VirtualizedContainerService.HintSize="514.666666666667,1787.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence DisplayName="LoginIntelPortal" sap:VirtualizedContainerService.HintSize="476,1549.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Default="casundrang" Name="strUserName" />
-            <Variable x:TypeArguments="x:String" Default="Intel*po2022" Name="strPassword" />
-          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
