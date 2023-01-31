@@ -99,10 +99,18 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 3_IntelWebInvoice workflow" sap:VirtualizedContainerService.HintSize="375.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Intel Workflow\3_IntelWebInvoice.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">[SelectorBrowserApp]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">[SelectorBrowserUrl]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
+        </InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserApp" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserUrl" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 4_CreateNewInvoices workflow" sap:VirtualizedContainerService.HintSize="375.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Intel Workflow\4_CreateNewInvoices.xaml">

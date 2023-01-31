@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="io_BusinessConfig" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="io_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_CurrentRowData" Type="InOutArgument(sd:DataRow)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>637.333333333333,2362.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>981.333333333333,5431.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_5_MultipleLineItems_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="72">
@@ -92,7 +93,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to populate the multiple line items" DisplayName="Sequence - ServiceContractMultipleLineItems" sap:VirtualizedContainerService.HintSize="632.666666666667,2298" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to populate the multiple line items" DisplayName="Sequence - ServiceContractMultipleLineItems" sap:VirtualizedContainerService.HintSize="991.333333333333,5366.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -100,14 +101,14 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - ServiceContractMultipleLineItems" sap:VirtualizedContainerService.HintSize="590.666666666667,2175.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - ServiceContractMultipleLineItems" sap:VirtualizedContainerService.HintSize="949.333333333333,5244" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="ServiceContractMultipleLineItems Workflow" sap:VirtualizedContainerService.HintSize="552,1937.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="ServiceContractMultipleLineItems Workflow" sap:VirtualizedContainerService.HintSize="910.666666666667,5006" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Int32" Name="intCurrentTableRowValue" />
             <Variable x:TypeArguments="x:Int32" Name="intIncreasedTableRowValueWith1" />
@@ -129,68 +130,79 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message - Service Contract Multiple Line Items Workflow Started" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Service Contract Multiple Line Items Workflow Started&quot;]">
+          <ui:LogMessage DisplayName="Log Message - Service Contract Multiple Line Items Workflow Started" sap:VirtualizedContainerService.HintSize="868.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Service Contract Multiple Line Items Workflow Started&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <ui:LogMessage DisplayName="Log Message - Click Multiple Line Items Checkboxes" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Clicking Multiple Line Items Checkboxes&quot;]">
+          <ui:LogMessage DisplayName="Log Message - Click Multiple Line Items Checkboxes" sap:VirtualizedContainerService.HintSize="868.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Clicking Multiple Line Items Checkboxes&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <Assign DisplayName="Assign - Multiple PO Numbers" sap:VirtualizedContainerService.HintSize="510,62" sap2010:WorkflowViewState.IdRef="Assign_5">
-            <Assign.To>
-              <OutArgument x:TypeArguments="s:String[]">[strArrayPONumber]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="s:String[]">[strSCMultiplePONumbers.Split(","c)]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ReadFlatFile workflow" sap:VirtualizedContainerService.HintSize="510,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Other Wokflow\ReadFlatFile.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_DataExcel">
-                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dtFlatFileData" />
-              </OutArgument>
-              <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-                <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-              </InOutArgument>
-              <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-                <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-              </InOutArgument>
-            </ui:InvokeWorkflowFile.Arguments>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="868.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,410" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign - Multiple PO Numbers" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[strArrayPONumber]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[strSCMultiplePONumbers.Split(","c)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ReadFlatFile workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Other Wokflow\ReadFlatFile.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_DataExcel">[dtFlatFileData]</OutArgument>
+                    <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+                    <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InvokeWorkflowFile>
+                <Assign DisplayName="Assign DataTable into DataRow" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="sd:DataRow">[drFlatFileInputData]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="sd:DataRow">[dtFlatFileData.Select().FirstOrDefault]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:CommentOut.Body>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:InvokeWorkflowFile>
-          <Assign DisplayName="Assign DataTable into DataRow" sap:VirtualizedContainerService.HintSize="510,62" sap2010:WorkflowViewState.IdRef="Assign_6">
-            <Assign.To>
-              <OutArgument x:TypeArguments="sd:DataRow">[drFlatFileInputData]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="sd:DataRow">[dtFlatFileData.Select().FirstOrDefault]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - ServiceContractMultipleLineItems" sap:VirtualizedContainerService.HintSize="510,1083.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="be34b35b6d8f29a48dd0ffd6906fb30e" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          </ui:CommentOut>
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - ServiceContractMultipleLineItems" sap:VirtualizedContainerService.HintSize="868.666666666667,4417.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="be34b35b6d8f29a48dd0ffd6906fb30e" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Service Contract Multiple Line Items Activities" sap:VirtualizedContainerService.HintSize="476,937.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <Sequence DisplayName="Service Contract Multiple Line Items Activities" sap:VirtualizedContainerService.HintSize="834.666666666667,4271.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="tableRow" DisplayName="Get Attribute - Current Table Row Value" sap:VirtualizedContainerService.HintSize="434,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
+                  <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="tableRow" DisplayName="Get Attribute - Current Table Row Value" sap:VirtualizedContainerService.HintSize="792.666666666667,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
                     <ui:GetAttribute.Result>
                       <OutArgument x:TypeArguments="x:Int32">[intCurrentTableRowValue]</OutArgument>
                     </ui:GetAttribute.Result>
@@ -208,7 +220,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:GetAttribute>
-                  <ui:LogMessage DisplayName="Log Message - Extracting MultiLine Data" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Extracting MultiLine Data for Row Count&quot;]">
+                  <ui:LogMessage DisplayName="Log Message - Extracting MultiLine Data" sap:VirtualizedContainerService.HintSize="792.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Extracting MultiLine Data for Row Count&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
@@ -216,7 +228,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:LogMessage>
-                  <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application/Browser - Extracting the Data Table" sap:VirtualizedContainerService.HintSize="434,52.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="6100b1be-5bff-4d9c-bd83-19ba3c16b366" Version="V2">
+                  <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application/Browser - Extracting the Data Table" sap:VirtualizedContainerService.HintSize="792.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="6100b1be-5bff-4d9c-bd83-19ba3c16b366" Version="V2">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -246,7 +258,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NApplicationCard>
-                  <ui:LogMessage DisplayName="Log Message - Selecting Required Line Items" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Selecting Line Items&quot;]">
+                  <ui:LogMessage DisplayName="Log Message - Selecting Required Line Items" sap:VirtualizedContainerService.HintSize="792.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Selecting Line Items&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
@@ -254,16 +266,16 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:LogMessage>
-                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While - Selecting MultiLine Checkboxes" sap:VirtualizedContainerService.HintSize="434,238.666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[(strRemainingLineAmount &lt;= drFlatFileInputData(&quot;Total Amount&quot;).ToString) and (dt_prefixExtractedDataTable.RowCount &gt; intLoopNumber)]" DisplayName="Do While - Selecting MultiLine Checkboxes" sap:VirtualizedContainerService.HintSize="792.666666666667,3572.66666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
                     <ui:InterruptibleDoWhile.Body>
-                      <Sequence DisplayName="Body - Selecting MultiLine Checkboxes" sap:VirtualizedContainerService.HintSize="756,3288.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence DisplayName="Body - Selecting MultiLine Checkboxes" sap:VirtualizedContainerService.HintSize="756,3403.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign sap2010:Annotation.AnnotationText="-&gt; Increasing Row Number by 1 for Description and Tax Value&#xA;-&gt; Increasing Row Number by 2 for Line Item Checkboxes" DisplayName="Multiple Assign - Increasing Row Number for Description and Tax Value" sap:VirtualizedContainerService.HintSize="714,175.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                        <ui:MultipleAssign sap2010:Annotation.AnnotationText="-&gt; Increasing Row Number by 1 for Description and Tax Value&#xA;-&gt; Increasing Row Number by 2 for Line Item Checkboxes" DisplayName="Multiple Assign - Increasing Row Number for Description and Tax Value" sap:VirtualizedContainerService.HintSize="714,164.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -287,7 +299,7 @@
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -299,7 +311,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:LogMessage>
-                        <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into - Entering Quantity" EmptyField="True" sap:VirtualizedContainerService.HintSize="714,134" sap2010:WorkflowViewState.IdRef="TypeInto_25" SimulateType="False" Text="[drFlatFileInputData(&quot;Qty&quot;).ToString]">
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into - Entering Quantity" EmptyField="True" sap:VirtualizedContainerService.HintSize="714,134" sap2010:WorkflowViewState.IdRef="TypeInto_25" SimulateType="False" Text="[io_CurrentRowData(&quot;Qty&quot;).ToString]">
                           <ui:TypeInto.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f49dba5-aec0-4a58-89a9-94883d3094a5" InformativeScreenshot="2b8837b51a59f6c59bf6f8352fbe48ff" Selector="[String.Format(&quot;&lt;webctrl tableRow='{0}' colName='*Qty*' /&gt;&quot;, intCurrentTableRowValue)]" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
@@ -329,7 +341,7 @@
                             <OutArgument x:TypeArguments="x:String">[strExtractedUnitPriceValue]</OutArgument>
                           </ui:GetValue.Value>
                         </ui:GetValue>
-                        <If Condition="[strExtractedUnitPriceValue = drFlatFileInputData(&quot;Unit Price&quot;).ToString]" DisplayName="If - Unit Price Value Matched or Not" sap:VirtualizedContainerService.HintSize="714,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If Condition="[strExtractedUnitPriceValue = io_CurrentRowData(&quot;Unit Price&quot;).ToString]" DisplayName="If - Unit Price Value Matched or Not" sap:VirtualizedContainerService.HintSize="714,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -350,7 +362,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:LogMessage>
-                        <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item Description_NoTax" sap:VirtualizedContainerService.HintSize="714,134" sap2010:WorkflowViewState.IdRef="SelectItem_8" Item="[drFlatFileInputData(&quot;Item Description&quot;).ToString]">
+                        <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item Description_NoTax" sap:VirtualizedContainerService.HintSize="714,134" sap2010:WorkflowViewState.IdRef="SelectItem_8" Item="[io_BusinessConfig(&quot;INTELItemDescriptionDropdownValue&quot;).ToString]">
                           <ui:SelectItem.Items>
                             <scg:List x:TypeArguments="x:String" Capacity="8">
                               <x:String>No Tax</x:String>
@@ -381,7 +393,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:LogMessage>
-                        <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into - Entering Line Amount (Tax Value)" EmptyField="True" sap:VirtualizedContainerService.HintSize="714,134" sap2010:WorkflowViewState.IdRef="TypeInto_24" SimulateType="False" Text="[drFlatFileInputData(&quot;Tax Description&quot;).ToString]">
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into - Entering Line Amount (Tax Value)" EmptyField="True" sap:VirtualizedContainerService.HintSize="714,134" sap2010:WorkflowViewState.IdRef="TypeInto_24" SimulateType="False" Text="[io_CurrentRowData(&quot;Tax Amount (SGD)&quot;).ToString]">
                           <ui:TypeInto.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f49dba5-aec0-4a58-89a9-94883d3094a5" InformativeScreenshot="085cc0459285c0221642e0ceed805dd0" Selector="[String.Format(&quot;&lt;webctrl tableRow='{0}' colName='*Line Amt*' /&gt;&quot;, intIncreasedTableRowValueWith1)]" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
@@ -421,6 +433,7 @@
                             </ui:Target>
                           </ui:Click.Target>
                         </ui:Click>
+                        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="714,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Stop&quot;]" />
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 2A_ServiceContractRemainingLineAmount_Asterisk workflow" sap:VirtualizedContainerService.HintSize="714,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Service Contract Workflow\2A_ServiceContractRemainingLineAmount_Asterisk.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <OutArgument x:TypeArguments="x:String" x:Key="out_RemainingLineAmount">[strRemainingLineAmount]</OutArgument>
@@ -522,9 +535,6 @@
                         </If>
                       </Sequence>
                     </ui:InterruptibleDoWhile.Body>
-                    <ui:InterruptibleDoWhile.Condition>
-                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="(strRemainingLineAmount &lt;= drFlatFileInputData(&quot;Total Amount&quot;).ToString) and (dt_prefixExtractedDataTable.RowCount &gt; intLoopNumber)" />
-                    </ui:InterruptibleDoWhile.Condition>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -542,11 +552,11 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:BrowserScope>
-          <ui:LogMessage DisplayName="Log Message - Service Contract Multiple Line Items Workflow Ended" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Service Contract Multiple Line Items Workflow Ended&quot;]" />
+          <ui:LogMessage DisplayName="Log Message - Service Contract Multiple Line Items Workflow Ended" sap:VirtualizedContainerService.HintSize="868.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Service Contract Multiple Line Items Workflow Ended&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="556.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="915.333333333333,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
