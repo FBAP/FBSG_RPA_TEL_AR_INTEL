@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>753.333333333333,1435.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>753.333333333333,1474</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_0_IntelInvokeAllWorkflows_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -37,6 +37,8 @@
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -68,100 +70,104 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="IntelParts_InvokeAllWorkflows" sap:VirtualizedContainerService.HintSize="417.333333333333,1370.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="IntelParts_InvokeAllWorkflows" sap:VirtualizedContainerService.HintSize="626,1409.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="SelectorBrowserApp" />
       <Variable x:TypeArguments="x:String" Name="SelectorBrowserUrl" />
+      <Variable x:TypeArguments="x:Boolean" Name="SkipNextSteps" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Intel Parts Invoke All Workflows Started" sap:VirtualizedContainerService.HintSize="375.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Intel Parts Invoke All Workflows Started&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 1_CheckIntelPortalAccessibility workflow" sap:VirtualizedContainerService.HintSize="375.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Intel Workflow\1_CheckIntelPortalAccessibility.xaml">
+    <ui:LogMessage DisplayName="Log Message - Intel Parts Invoke All Workflows Started" sap:VirtualizedContainerService.HintSize="584,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Intel Parts Invoke All Workflows Started&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 1_CheckIntelPortalAccessibility workflow" sap:VirtualizedContainerService.HintSize="584,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Intel Workflow\1_CheckIntelPortalAccessibility.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InOutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_SelectorBrowserApp">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="SelectorBrowserApp" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_SelectorBrowserUrl">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="SelectorBrowserUrl" />
-        </OutArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_SelectorBrowserApp">[SelectorBrowserApp]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_SelectorBrowserUrl">[SelectorBrowserUrl]</OutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 2_LoginIntelPortal workflow" sap:VirtualizedContainerService.HintSize="375.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Intel Workflow\2_LoginIntelPortal.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 2_LoginIntelPortal workflow" sap:VirtualizedContainerService.HintSize="584,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Intel Workflow\2_LoginIntelPortal.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserApp" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserUrl" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">[SelectorBrowserApp]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">[SelectorBrowserUrl]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 3_IntelWebInvoice workflow" sap:VirtualizedContainerService.HintSize="375.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Intel Workflow\3_IntelWebInvoice.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 3_IntelWebInvoice workflow" sap:VirtualizedContainerService.HintSize="584,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Intel Workflow\3_IntelWebInvoice.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserApp" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserUrl" />
-        </InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">[SelectorBrowserApp]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">[SelectorBrowserUrl]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 4_CreateNewInvoices workflow" sap:VirtualizedContainerService.HintSize="375.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Intel Workflow\4_CreateNewInvoices.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_CurrentRowData" />
-        </InOutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 5_MultipleLineItems workflow" sap:VirtualizedContainerService.HintSize="375.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Intel Workflow\5_MultipleLineItems.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_CurrentRowData" />
-        </InOutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="375.333333333333,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Stop&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 6_InvoiceGSTReporting workflow" sap:VirtualizedContainerService.HintSize="375.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Intel Workflow\6_InvoiceGSTReporting.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 4_CreateNewInvoices workflow" sap:VirtualizedContainerService.HintSize="584,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Intel Workflow\4_CreateNewInvoices.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
         <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">[io_CurrentRowData]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message - Intel Parts Invoke All Workflows Ended" sap:VirtualizedContainerService.HintSize="375.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Intel Parts Invoke All Workflows Ended&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 5_MultipleLineItems workflow" sap:VirtualizedContainerService.HintSize="584,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Intel Workflow\5_MultipleLineItems.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
+          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
+          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_CurrentRowData" />
+        </InOutArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_SkipNextSteps">
+          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="SkipNextSteps" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <If Condition="[SkipNextSteps = True]" DisplayName="If - Skip Next Steps is True" sap:VirtualizedContainerService.HintSize="584,278" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Intel" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="53f1703d4496b88e7cc1db7eae2e5fd1" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          <ui:BrowserScope.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window - Intel" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="358f60f199c3eddf962f72679ecabb98" WaitForReady="INTERACTIVE" />
+            </ActivityAction>
+          </ui:BrowserScope.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:BrowserScope>
+      </If.Then>
+      <If.Else>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 6_InvoiceGSTReporting workflow" sap:VirtualizedContainerService.HintSize="338,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Intel Workflow\6_InvoiceGSTReporting.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
+              <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
+            </InOutArgument>
+            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
+              <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
+            </InOutArgument>
+            <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">
+              <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_CurrentRowData" />
+            </InOutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message - Intel Parts Invoke All Workflows Ended" sap:VirtualizedContainerService.HintSize="584,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Intel Parts Invoke All Workflows Ended&quot;]" />
   </Sequence>
 </Activity>

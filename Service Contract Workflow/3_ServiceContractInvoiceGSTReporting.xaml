@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>753.333333333333,1803.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>753.333333333333,2811.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_6_InvoiceGSTReporting_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -76,6 +76,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -83,25 +84,22 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Sequence - Service Contract Invoice GST Reporting" sap:VirtualizedContainerService.HintSize="635.333333333333,1738.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Sequence - Service Contract Invoice GST Reporting" sap:VirtualizedContainerService.HintSize="556.666666666667,2746.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - Service Contract Invoice GST Reporting" sap:VirtualizedContainerService.HintSize="593.333333333333,1646.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - Service Contract Invoice GST Reporting" sap:VirtualizedContainerService.HintSize="514.666666666667,2654.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Service Contract Invoice GST Reporting" sap:VirtualizedContainerService.HintSize="554.666666666667,1408.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="Service Contract Invoice GST Reporting" sap:VirtualizedContainerService.HintSize="476,2416.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Default="100" Name="strExcludingGSTAmount" />
-            <Variable x:TypeArguments="x:String" Default="100" Name="strTotalGSTAmount" />
-            <Variable x:TypeArguments="x:String" Default="200" Name="strIncludingGSTAmount" />
             <Variable x:TypeArguments="x:String" Name="strInvoiceGrandTotal" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
@@ -110,21 +108,21 @@
               <x:Boolean x:Key="IsPinned">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message - Service Contract Invoice GST Reporting Workflow Started" sap:VirtualizedContainerService.HintSize="512.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Service Contract Invoice GST Reporting Workflow Started&quot;]" />
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Invoice GST Reporting " sap:VirtualizedContainerService.HintSize="512.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="417e91dc44a333798ff72eb65d68762b" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          <ui:LogMessage DisplayName="Log Message - Service Contract Invoice GST Reporting Workflow Started" sap:VirtualizedContainerService.HintSize="434,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Service Contract Invoice GST Reporting Workflow Started&quot;]" />
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Invoice GST Reporting " sap:VirtualizedContainerService.HintSize="434,1263.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="417e91dc44a333798ff72eb65d68762b" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do -Invoice GST Reporting" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Do -Invoice GST Reporting" sap:VirtualizedContainerService.HintSize="376,1037.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message Entering Excluding GST Amount" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Entering Excluding GST Amount&quot;]">
+                  <ui:LogMessage DisplayName="Log Message Entering Excluding GST Amount" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Entering Excluding GST Amount&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
@@ -132,7 +130,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:LogMessage>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into Excluding GST Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[strExcludingGSTAmount]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into Excluding GST Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[io_CurrentRowData(&quot;Total Amount (No Tax) (SGD)&quot;).ToString]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="012ec8b0-93ad-4bf3-a693-bc3d3261b0fb" InformativeScreenshot="236635360225f0192109a40fd430c7f7" Selector="&lt;webctrl name='inv_total' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -140,9 +138,14 @@
                         </ui:Target.TimeoutMS>
                       </ui:Target>
                     </ui:TypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message Entering Total GST Amount" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Entering Total GST Amount&quot;]" />
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into Total GST Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[strTotalGSTAmount]">
+                  <ui:LogMessage DisplayName="Log Message Entering Total GST Amount" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Entering Total GST Amount&quot;]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into Total GST Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[io_CurrentRowData(&quot;Tax Amount (SGD)&quot;).ToString]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="012ec8b0-93ad-4bf3-a693-bc3d3261b0fb" InformativeScreenshot="236635360225f0192109a40fd430c7f7" Selector="&lt;webctrl name='gst_total' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -150,9 +153,14 @@
                         </ui:Target.TimeoutMS>
                       </ui:Target>
                     </ui:TypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message Entering Including GST Amount" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Entering Including GST Amount&quot;]" />
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into Including GST Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[strIncludingGSTAmount]">
+                  <ui:LogMessage DisplayName="Log Message Entering Including GST Amount" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Entering Including GST Amount&quot;]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into Including GST Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[io_CurrentRowData(&quot;Invoice Amount (Including Tax) (SGD)&quot;).ToString]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="012ec8b0-93ad-4bf3-a693-bc3d3261b0fb" InformativeScreenshot="d4c4b0a049a21da214a848ee7c66a76b" Selector="&lt;webctrl name='inv_gst_total' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -160,9 +168,14 @@
                         </ui:Target.TimeoutMS>
                       </ui:Target>
                     </ui:TypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </ui:TypeInto>
-                  <ui:LogMessage DisplayName="Log Message Click Review Invoice Button" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Clicking Review Invoice Button&quot;]" />
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Review Invoice Button" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:LogMessage DisplayName="Log Message Click Review Invoice Button" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Clicking Review Invoice Button&quot;]" />
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Review Invoice Button" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -189,26 +202,26 @@
             </ui:BrowserScope.Body>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:BrowserScope>
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Review Invoice" sap:VirtualizedContainerService.HintSize="512.666666666667,1038.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="53f1703d4496b88e7cc1db7eae2e5fd1" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Review Invoice" sap:VirtualizedContainerService.HintSize="434,836" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="53f1703d4496b88e7cc1db7eae2e5fd1" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do - Review Invoice" sap:VirtualizedContainerService.HintSize="478.666666666667,852.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Do - Review Invoice" sap:VirtualizedContainerService.HintSize="376,650" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message - Review Invoice" sap:VirtualizedContainerService.HintSize="436.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Extracting the Grand Total from the Invoice&quot;]" />
-                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text - Invoice Total" sap:VirtualizedContainerService.HintSize="436.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                  <ui:LogMessage DisplayName="Log Message - Review Invoice" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Extracting the Grand Total from the Invoice&quot;]" />
+                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text - Invoice Total" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetValue_1">
                     <ui:GetValue.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bcf829fa-aead-4362-85d1-cb86c2411930" InformativeScreenshot="e8d06028c08d4832fe1f832eb34912d9" Selector="&lt;webctrl tableCol='4' aaname='USD*' innertext='USD*' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
@@ -220,15 +233,15 @@
                       <OutArgument x:TypeArguments="x:String">[strInvoiceGrandTotal]</OutArgument>
                     </ui:GetValue.Value>
                   </ui:GetValue>
-                  <ui:LogMessage DisplayName="Log Message - Grand Total" sap:VirtualizedContainerService.HintSize="436.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Grand Total value of the Invoice is : &quot;+strInvoiceGrandTotal]" />
-                  <ui:LogMessage DisplayName="Log Message -  Clicking Submit Button" sap:VirtualizedContainerService.HintSize="436.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Clicking Submit Button (Currently Comment Out)&quot;]">
+                  <ui:LogMessage DisplayName="Log Message - Grand Total" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Grand Total value of the Invoice is : &quot;+strInvoiceGrandTotal]" />
+                  <ui:LogMessage DisplayName="Log Message -  Clicking Submit Button" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Clicking Submit Button (Currently Comment Out)&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsPinned">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:LogMessage>
-                  <ui:CommentOut DisplayName="Comment Out - Important, Do not Delete" sap:VirtualizedContainerService.HintSize="436.666666666667,255.333333333333" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut DisplayName="Comment Out - Important, Do not Delete" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                     <ui:CommentOut.Body>
                       <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="Do not use it while developing" ClickType="CLICK_SINGLE" DisplayName="Click - Submit Button" sap:VirtualizedContainerService.HintSize="334,136.666666666667" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                         <ui:Click.CursorPosition>
@@ -258,12 +271,12 @@
                     </ui:CommentOut.Body>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window Review Invoice" sap:VirtualizedContainerService.HintSize="436.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="358f60f199c3eddf962f72679ecabb98" WaitForReady="INTERACTIVE" />
+                  <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window Review Invoice" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="358f60f199c3eddf962f72679ecabb98" WaitForReady="INTERACTIVE" />
                 </Sequence>
               </ActivityAction>
             </ui:BrowserScope.Body>
