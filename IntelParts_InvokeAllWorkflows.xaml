@@ -3,6 +3,8 @@
     <x:Property Name="io_BusinessConfig" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="io_Config" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="io_CurrentRowData" Type="InOutArgument(sd:DataRow)" />
+    <x:Property Name="io_FlatFileRowNumber" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="io_FlatFilePath" Type="InOutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -69,9 +71,9 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="IntelParts_InvokeAllWorkflows" sap:VirtualizedContainerService.HintSize="626,1409.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -131,6 +133,12 @@
         <OutArgument x:TypeArguments="x:Boolean" x:Key="out_SkipNextSteps">
           <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="SkipNextSteps" />
         </OutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_FlatFileRowNumber">
+          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_FlatFileRowNumber" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_FlatFilePath">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_FlatFilePath" />
+        </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If Condition="[SkipNextSteps = True]" DisplayName="If - Skip Next Steps is True" sap:VirtualizedContainerService.HintSize="584,278" sap2010:WorkflowViewState.IdRef="If_1">
@@ -155,15 +163,9 @@
       <If.Else>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 6_InvoiceGSTReporting workflow" sap:VirtualizedContainerService.HintSize="338,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Intel Workflow\6_InvoiceGSTReporting.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-              <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-            </InOutArgument>
-            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-              <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-            </InOutArgument>
-            <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">
-              <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_CurrentRowData" />
-            </InOutArgument>
+            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
+            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+            <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">[io_CurrentRowData]</InOutArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </If.Else>
