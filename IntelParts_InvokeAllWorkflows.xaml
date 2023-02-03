@@ -5,11 +5,12 @@
     <x:Property Name="io_CurrentRowData" Type="InOutArgument(sd:DataRow)" />
     <x:Property Name="io_FlatFileRowNumber" Type="InOutArgument(x:Int32)" />
     <x:Property Name="io_FlatFilePath" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_SkipMultilineRow" Type="InOutArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>753.333333333333,1474</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>778,1474</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_0_IntelInvokeAllWorkflows_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -138,6 +139,9 @@
         </InOutArgument>
         <InOutArgument x:TypeArguments="x:String" x:Key="io_FlatFilePath">
           <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_FlatFilePath" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:Boolean" x:Key="out_SkipMultilineRow">
+          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="io_SkipMultilineRow" />
         </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>

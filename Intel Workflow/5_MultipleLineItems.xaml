@@ -6,11 +6,12 @@
     <x:Property Name="out_SkipNextSteps" Type="OutArgument(x:Boolean)" />
     <x:Property Name="io_FlatFileRowNumber" Type="InOutArgument(x:Int32)" />
     <x:Property Name="io_FlatFilePath" Type="InOutArgument(x:String)" />
+    <x:Property Name="out_SkipMultilineRow" Type="InOutArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1090,4756.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1353.33333333333,4126.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_5_MultipleLineItems_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -99,7 +100,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to populate the multiple line items" DisplayName="Sequence - MultipleLineItems" sap:VirtualizedContainerService.HintSize="1100,4692" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to populate the multiple line items" DisplayName="Sequence - MultipleLineItems" sap:VirtualizedContainerService.HintSize="1363.33333333333,4062" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -107,21 +108,25 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - MultipleLineItems" sap:VirtualizedContainerService.HintSize="1058,4382" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - MultipleLineItems" sap:VirtualizedContainerService.HintSize="785.333333333333,3500.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="MultipleLineItems Workflow" sap:VirtualizedContainerService.HintSize="843.333333333333,4144" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="MultipleLineItems Workflow" sap:VirtualizedContainerService.HintSize="606.666666666667,3262.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="strLineAmountTaxValue" />
             <Variable x:TypeArguments="x:String" Name="strPartNumber" />
             <Variable x:TypeArguments="x:Int32" Name="intCurrentTableRowValue" />
             <Variable x:TypeArguments="x:Int32" Name="intIncreasedTableRowValue" />
             <Variable x:TypeArguments="s:String[]" Name="strArrayPartNumber" />
-            <Variable x:TypeArguments="x:Int32" Default="2" Name="intFirstTableRowValue" />
+            <Variable x:TypeArguments="x:Int32" Name="intFirstTableRowValue">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:Int32" Value="2" />
+              </Variable.Default>
+            </Variable>
             <Variable x:TypeArguments="x:String" Name="DataTableExtractionPath" />
             <Variable x:TypeArguments="sd:DataTable" Name="dt_prefixExtractedDataTable" />
             <Variable x:TypeArguments="x:Boolean" Name="boolSimilarPartNumber" />
@@ -134,8 +139,9 @@
             <Variable x:TypeArguments="x:String" Name="strNextOrderCategory" />
             <Variable x:TypeArguments="x:Double" Name="strNextQuantity" />
             <Variable x:TypeArguments="x:Double" Name="strNextUnitPrice" />
-            <Variable x:TypeArguments="x:String" Name="strNextProductCode" />
+            <Variable x:TypeArguments="x:String" Name="strNextPartNumber" />
             <Variable x:TypeArguments="x:Double" Name="strNextTaxAmount" />
+            <Variable x:TypeArguments="sd:DataTable" Name="dtNewFlatFileData" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -143,21 +149,21 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message - Multiple Line Items Workflow Started" sap:VirtualizedContainerService.HintSize="801.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Multiple Line Items Workflow Started&quot;]">
+          <ui:LogMessage DisplayName="Log Message - Multiple Line Items Workflow Started" sap:VirtualizedContainerService.HintSize="564.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Multiple Line Items Workflow Started&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <ui:LogMessage DisplayName="Log Message - Click  Line Items Checkboxes" sap:VirtualizedContainerService.HintSize="801.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Clicking Line Items Checkboxes&quot;]">
+          <ui:LogMessage DisplayName="Log Message - Click  Line Items Checkboxes" sap:VirtualizedContainerService.HintSize="564.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Clicking Line Items Checkboxes&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="801.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="564.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_4">
             <ui:CommentOut.Body>
               <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,410" sap2010:WorkflowViewState.IdRef="Sequence_18">
                 <sap:WorkflowViewStateService.ViewState>
@@ -202,20 +208,20 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:CommentOut>
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Multiple Line Items" sap:VirtualizedContainerService.HintSize="801.333333333333,3555.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="be34b35b6d8f29a48dd0ffd6906fb30e" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Multiple Line Items" sap:VirtualizedContainerService.HintSize="564.666666666667,2674" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="be34b35b6d8f29a48dd0ffd6906fb30e" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Sequence - Part Multiple Line Items" sap:VirtualizedContainerService.HintSize="767.333333333333,3409.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Sequence - Part Multiple Line Items" sap:VirtualizedContainerService.HintSize="530.666666666667,2528" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application/Browser - Extracting the Data Table" sap:VirtualizedContainerService.HintSize="725.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="6100b1be-5bff-4d9c-bd83-19ba3c16b366" Version="V2">
+                  <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application/Browser - Extracting the Data Table" sap:VirtualizedContainerService.HintSize="488.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="6100b1be-5bff-4d9c-bd83-19ba3c16b366" Version="V2">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -245,7 +251,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NApplicationCard>
-                  <Assign DisplayName="Assign - Part Number From FlatFile" sap:VirtualizedContainerService.HintSize="725.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_16">
+                  <Assign DisplayName="Assign - Part Number From FlatFile" sap:VirtualizedContainerService.HintSize="488.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_16">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[strPartNumberFlatFile]</OutArgument>
                     </Assign.To>
@@ -253,16 +259,16 @@
                       <InArgument x:TypeArguments="x:String">[io_CurrentRowData("Product Code").ToString.Trim]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[strPartNumberFlatFile &lt;&gt;  intCurrentPartNumber AND (dt_prefixExtractedDataTable.RowCount &gt; intFirstTableRowValue)]" DisplayName="Do While - Webpage Part Number is matches with FlatFile Part Number" sap:VirtualizedContainerService.HintSize="725.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[strPartNumberFlatFile &lt;&gt;  intCurrentPartNumber AND (dt_prefixExtractedDataTable.RowCount &gt; intFirstTableRowValue)]" DisplayName="Do While - Webpage Part Number is matches with FlatFile Part Number" sap:VirtualizedContainerService.HintSize="488.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
                     <ui:InterruptibleDoWhile.Body>
-                      <Sequence DisplayName="Body - Matching Part Number" sap:VirtualizedContainerService.HintSize="592,923.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence DisplayName="Body - Matching Part Number" sap:VirtualizedContainerService.HintSize="592,608.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="aaname" DisplayName="Get Attribute - Part Number" sap:VirtualizedContainerService.HintSize="474.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_5">
+                        <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="aaname" DisplayName="Get Attribute - Part Number" sap:VirtualizedContainerService.HintSize="550,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_5">
                           <ui:GetAttribute.Result>
                             <OutArgument x:TypeArguments="x:String">[intCurrentPartNumber]</OutArgument>
                           </ui:GetAttribute.Result>
@@ -280,8 +286,8 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:GetAttribute>
-                        <ui:LogMessage DisplayName="Log Message - Matching Part Number" sap:VirtualizedContainerService.HintSize="474.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Validating Webpage Part Number with FlatFile Part Number&quot;]" />
-                        <If Condition="[intCurrentPartNumber = strPartNumberFlatFile]" DisplayName="If - Validating whether Webpage Part Number is similar to Flatfile Part Number or Not" sap:VirtualizedContainerService.HintSize="474.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                        <ui:LogMessage DisplayName="Log Message - Matching Part Number" sap:VirtualizedContainerService.HintSize="550,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Validating Webpage Part Number with FlatFile Part Number&quot;]" />
+                        <If Condition="[intCurrentPartNumber = strPartNumberFlatFile]" DisplayName="If - Validating whether Webpage Part Number is similar to Flatfile Part Number or Not" sap:VirtualizedContainerService.HintSize="550,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -334,8 +340,8 @@
                             </Sequence>
                           </If.Else>
                         </If>
-                        <ui:LogMessage DisplayName="Log Message - Current Row Number" sap:VirtualizedContainerService.HintSize="474.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Row Number is : &quot;+ intFirstTableRowValue.ToString]" />
-                        <Assign DisplayName="Assign - Increment the Default Row Number" sap:VirtualizedContainerService.HintSize="474.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_14">
+                        <ui:LogMessage DisplayName="Log Message - Current Row Number" sap:VirtualizedContainerService.HintSize="550,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Row Number is : &quot;+ intFirstTableRowValue.ToString]" />
+                        <Assign DisplayName="Assign - Increment the Default Row Number" sap:VirtualizedContainerService.HintSize="550,62" sap2010:WorkflowViewState.IdRef="Assign_14">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Int32">[intFirstTableRowValue]</OutArgument>
                           </Assign.To>
@@ -352,7 +358,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InterruptibleDoWhile>
-                  <If Condition="[boolSimilarPartNumber]" DisplayName="If - Part Number Matches" sap:VirtualizedContainerService.HintSize="725.333333333333,2327.33333333333" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If Condition="[boolSimilarPartNumber]" DisplayName="If - Part Number Matches" sap:VirtualizedContainerService.HintSize="488.666666666667,580.666666666667" sap2010:WorkflowViewState.IdRef="If_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -360,14 +366,14 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Sequence - Part Number Matches" sap:VirtualizedContainerService.HintSize="688.666666666667,2136" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                      <Sequence DisplayName="Sequence - Part Number Matches" sap:VirtualizedContainerService.HintSize="376,389.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_33">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetAttribute Attribute="tableRow" ContinueOnError="True" DisplayName="Get Attribute - Current Table Row" sap:VirtualizedContainerService.HintSize="646.666666666667,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_7">
+                        <ui:GetAttribute Attribute="tableRow" ContinueOnError="True" DisplayName="Get Attribute - Current Table Row" sap:VirtualizedContainerService.HintSize="334,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_7">
                           <ui:GetAttribute.Result>
                             <OutArgument x:TypeArguments="x:Int32">[intCurrentTableRowValue]</OutArgument>
                           </ui:GetAttribute.Result>
@@ -385,10 +391,10 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:GetAttribute>
-                        <If Condition="[intCurrentTableRowValue = Nothing]" DisplayName="If - Part Number is Present" sap:VirtualizedContainerService.HintSize="646.666666666667,1799.33333333333" sap2010:WorkflowViewState.IdRef="If_9">
+                        <If Condition="[intCurrentTableRowValue = Nothing]" DisplayName="If - Part Number is Present" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_9">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -412,10 +418,10 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Sequence - Part Number is present in Intel web portal" sap:VirtualizedContainerService.HintSize="400.666666666667,1638.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                            <Sequence DisplayName="Sequence - Part Number is present in Intel web portal" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_32">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -622,7 +628,7 @@
                       </Sequence>
                     </If.Then>
                   </If>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="-&gt; Reset the Boolean_SiimilarPartNumber to FALSE for next Part Number&#xA;-&gt; Reset the First Row value to 2 for next Part Number" DisplayName="Multiple Assign - Reset some values" sap:VirtualizedContainerService.HintSize="725.333333333333,175.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="-&gt; Reset the Boolean_SiimilarPartNumber to FALSE for next Part Number&#xA;-&gt; Reset the First Row value to 2 for next Part Number" DisplayName="Multiple Assign - Reset some values" sap:VirtualizedContainerService.HintSize="488.666666666667,175.333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -651,81 +657,529 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:MultipleAssign>
-                  <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="This Activity is used to Read the Next Row Item Data to validate Multiple Line Item Data" DisplayName="Excel Application Scope - To read Next Line Item Data" sap:VirtualizedContainerService.HintSize="725.333333333333,131.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[io_FlatFilePath]">
+                  <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="This Activity is used to Read the Next Row Item Data to validate Multiple Line Item Data" DisplayName="Excel Application Scope - To read Next Line Item Data" sap:VirtualizedContainerService.HintSize="488.666666666667,1220" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[io_FlatFilePath]">
                     <ui:ExcelApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do - Read Next Line Item Data" sap:VirtualizedContainerService.HintSize="376,644" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                        <Sequence DisplayName="Do - Read Next Line Item Data" sap:VirtualizedContainerService.HintSize="454.666666666667,1066" sap2010:WorkflowViewState.IdRef="Sequence_36">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:ExcelReadCell Cell="[&quot;A&quot;+ (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next PO Number" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="Sheet1">
-                            <ui:ExcelReadCell.Result>
-                              <OutArgument x:TypeArguments="x:String">[strNextPONumber]</OutArgument>
-                            </ui:ExcelReadCell.Result>
-                          </ui:ExcelReadCell>
-                          <ui:ExcelReadCell Cell="[&quot;F&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Order Catagory" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="Sheet1">
-                            <ui:ExcelReadCell.Result>
-                              <OutArgument x:TypeArguments="x:String">[strNextOrderCategory]</OutArgument>
-                            </ui:ExcelReadCell.Result>
-                          </ui:ExcelReadCell>
-                          <ui:ExcelReadCell Cell="[&quot;K&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Tax Amount" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_6" SheetName="Sheet1">
-                            <ui:ExcelReadCell.Result>
-                              <OutArgument x:TypeArguments="x:Double">[strNextTaxAmount]</OutArgument>
-                            </ui:ExcelReadCell.Result>
-                          </ui:ExcelReadCell>
-                          <ui:ExcelReadCell Cell="[&quot;R&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Quantity" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Sheet1">
-                            <ui:ExcelReadCell.Result>
-                              <OutArgument x:TypeArguments="x:Double">[strNextQuantity]</OutArgument>
-                            </ui:ExcelReadCell.Result>
-                          </ui:ExcelReadCell>
-                          <ui:ExcelReadCell Cell="[&quot;S&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Unit Price" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_4" SheetName="Sheet1">
-                            <ui:ExcelReadCell.Result>
-                              <OutArgument x:TypeArguments="x:Double">[strNextUnitPrice]</OutArgument>
-                            </ui:ExcelReadCell.Result>
-                          </ui:ExcelReadCell>
-                          <ui:ExcelReadCell Result="{x:Null}" Cell="[&quot;X&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Product Code" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_5" SheetName="Sheet1" />
+                          <ui:ExcelReadRange AddHeaders="False" DataTable="[dtNewFlatFileData]" DisplayName="Read Range - FlatFile Data" sap:VirtualizedContainerService.HintSize="412.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+                            <ui:ExcelReadRange.Range>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:ExcelReadRange.Range>
+                          </ui:ExcelReadRange>
+                          <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="412.666666666667,875.333333333333" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                            <ui:InterruptibleWhile.Body>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,706" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:ExcelReadCell Cell="[&quot;A&quot;+ (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next PO Number" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="Sheet1">
+                                  <ui:ExcelReadCell.Result>
+                                    <OutArgument x:TypeArguments="x:String">[strNextPONumber]</OutArgument>
+                                  </ui:ExcelReadCell.Result>
+                                </ui:ExcelReadCell>
+                                <ui:ExcelReadCell Cell="[&quot;F&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Order Catagory" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="Sheet1">
+                                  <ui:ExcelReadCell.Result>
+                                    <OutArgument x:TypeArguments="x:String">[strNextOrderCategory]</OutArgument>
+                                  </ui:ExcelReadCell.Result>
+                                </ui:ExcelReadCell>
+                                <ui:ExcelReadCell Cell="[&quot;K&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Tax Amount" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_6" SheetName="Sheet1">
+                                  <ui:ExcelReadCell.Result>
+                                    <OutArgument x:TypeArguments="x:Double">[strNextTaxAmount]</OutArgument>
+                                  </ui:ExcelReadCell.Result>
+                                </ui:ExcelReadCell>
+                                <ui:ExcelReadCell Cell="[&quot;R&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Quantity" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Sheet1">
+                                  <ui:ExcelReadCell.Result>
+                                    <OutArgument x:TypeArguments="x:Double">[strNextQuantity]</OutArgument>
+                                  </ui:ExcelReadCell.Result>
+                                </ui:ExcelReadCell>
+                                <ui:ExcelReadCell Cell="[&quot;S&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Unit Price" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_4" SheetName="Sheet1">
+                                  <ui:ExcelReadCell.Result>
+                                    <OutArgument x:TypeArguments="x:Double">[strNextUnitPrice]</OutArgument>
+                                  </ui:ExcelReadCell.Result>
+                                </ui:ExcelReadCell>
+                                <ui:ExcelReadCell Result="{x:Null}" Cell="[&quot;X&quot; + (io_FlatFileRowNumber+1).ToString]" DisplayName="Read Cell - Next Part Number" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_5" SheetName="Sheet1" />
+                                <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_3" />
+                              </Sequence>
+                            </ui:InterruptibleWhile.Body>
+                            <ui:InterruptibleWhile.Condition>
+                              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="dtNewFlatFileData.RowCount &gt; io_FlatFileRowNumber" />
+                            </ui:InterruptibleWhile.Condition>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:InterruptibleWhile>
                         </Sequence>
                       </ActivityAction>
                     </ui:ExcelApplicationScope.Body>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:ExcelApplicationScope>
-                  <If Condition="[(io_CurrentRowData(&quot;PO Number&quot;).ToString = strNextPONumber) and (io_CurrentRowData(&quot;Order Category&quot;).ToString = strNextOrderCategory)]" DisplayName="If - Next PO Number and Inovice Type is Similar to Previous PO Number and Invoice Type" sap:VirtualizedContainerService.HintSize="725.333333333333,276" sap2010:WorkflowViewState.IdRef="If_10">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="200,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                  </ui:ExcelApplicationScope>
+                  <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="488.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                    <ui:InterruptibleWhile.Body>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="592,654" sap2010:WorkflowViewState.IdRef="Sequence_44">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
+                        <If Condition="[(io_CurrentRowData(&quot;PO Number&quot;).ToString = strNextPONumber) and (io_CurrentRowData(&quot;Order Category&quot;).ToString = strNextOrderCategory)]" DisplayName="If - Next PO Number and Inovice Type is Similar to Previous PO Number and Invoice Type" sap:VirtualizedContainerService.HintSize="550,562" sap2010:WorkflowViewState.IdRef="If_10">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Sequence - Multiple Line Item" sap:VirtualizedContainerService.HintSize="304,401.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While - Webpage Next Part Number is matches with FlatFile Part Number" sap:VirtualizedContainerService.HintSize="262,52.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
+                                <ui:InterruptibleDoWhile.Body>
+                                  <Sequence DisplayName="Body - Matching Next Part Number" sap:VirtualizedContainerService.HintSize="526,786" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="aaname" DisplayName="Get Attribute - Nex Part Number" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_8">
+                                      <ui:GetAttribute.Result>
+                                        <OutArgument x:TypeArguments="x:String">[intCurrentPartNumber]</OutArgument>
+                                      </ui:GetAttribute.Result>
+                                      <ui:GetAttribute.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06c28f83-2109-493a-b814-cd1b3b1b2e54" InformativeScreenshot="993dfaca2b35b9f86097510c3e3e417f" Selector="[String.Format(&quot;&lt;webctrl tableRow='{0}' colName=' Part Nbr ' /&gt;&quot;, intFirstTableRowValue)]" WaitForReady="COMPLETE">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                        </ui:Target>
+                                      </ui:GetAttribute.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:GetAttribute>
+                                    <ui:LogMessage DisplayName="Log Message - Matching Next Part Number" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[&quot;Validating Webpage Next Part Number with FlatFile Part Number&quot;]">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:LogMessage>
+                                    <If Condition="[intCurrentPartNumber = strNextPartNumber]" DisplayName="If - Validating whether Webpage Next Part Number is similar to Flatfile Part Number or Not" sap:VirtualizedContainerService.HintSize="484,230" sap2010:WorkflowViewState.IdRef="If_11">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If.Then>
+                                        <Sequence DisplayName="Sequence - Webpage Next Part Number is similar to Flatfile Part Number" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message - Webpage Next Part Number is similar to Flatfile Part Number" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Info" Message="[&quot;WebpageNext Part Number : &quot;+intCurrentPartNumber+ &quot; is similar to Flatfile Part Number : &quot; + strNextPartNumber]">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:LogMessage>
+                                          <Assign DisplayName="Assign - True for similar  Next Part Numbers" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[boolSimilarPartNumber]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Sequence - Webpage Part Number is not similar to Flatfile Part Number" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message - Webpage Next Part Number is not similar to Flatfile Part Number" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_51" Level="Info" Message="[&quot;Webpage Next Part Number : &quot;+intCurrentPartNumber+ &quot; is not similar to Flatfile Part Number : &quot; + strNextPartNumber]" />
+                                          <Assign DisplayName="Assign - False for different Next Part Numbers" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[boolSimilarPartNumber]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                    <ui:LogMessage DisplayName="Log Message - Current Row for Next Part Number" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_52" Level="Info" Message="[&quot;Next Row Number is : &quot;+ intFirstTableRowValue.ToString]" />
+                                    <Assign DisplayName="Assign - Increment the Default Row Number" sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[intFirstTableRowValue]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[intFirstTableRowValue + 2]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:InterruptibleDoWhile.Body>
+                                <ui:InterruptibleDoWhile.Condition>
+                                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="strNextPONumber &lt;&gt;  intCurrentPartNumber AND (dt_prefixExtractedDataTable.RowCount &gt; intFirstTableRowValue)" />
+                                </ui:InterruptibleDoWhile.Condition>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:InterruptibleDoWhile>
+                              <If Condition="[boolSimilarPartNumber]" DisplayName="If -  Next Part Number Matches" sap:VirtualizedContainerService.HintSize="262,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_14">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence DisplayName="Sequence - Next Part Number Matches" sap:VirtualizedContainerService.HintSize="376,389.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:GetAttribute Attribute="tableRow" ContinueOnError="True" DisplayName="Get Attribute - Next Current Table Row" sap:VirtualizedContainerService.HintSize="334,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_9">
+                                      <ui:GetAttribute.Result>
+                                        <OutArgument x:TypeArguments="x:Int32">[intCurrentTableRowValue]</OutArgument>
+                                      </ui:GetAttribute.Result>
+                                      <ui:GetAttribute.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06c28f83-2109-493a-b814-cd1b3b1b2e54" InformativeScreenshot="993dfaca2b35b9f86097510c3e3e417f" Selector="[String.Format(&quot;&lt;webctrl aaname='{0}' /&gt;&quot;, strNextPartNumber)]" WaitForReady="COMPLETE">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                        </ui:Target>
+                                      </ui:GetAttribute.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:GetAttribute>
+                                    <If Condition="[intCurrentTableRowValue = Nothing]" DisplayName="If -  Next Part Number is Present" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_13">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If.Then>
+                                        <Sequence DisplayName="Sequence - Next Part Number is Missing in Intel web portal" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message -Send Notofication Email : Part Number is missing" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_53" Level="Error" Message="[&quot;Update Status and Send Notification, Part Number is missing from the INTEL webpage&quot;]" />
+                                          <Assign DisplayName="Assign - Skip Next Steps" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[out_SkipNextSteps]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Sequence - Next Part Number is present in Intel web portal" sap:VirtualizedContainerService.HintSize="400.666666666667,1638.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign DisplayName="Assign - Increasing Next Row Number for Description and Tax Value" sap:VirtualizedContainerService.HintSize="358.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[intIncreasedTableRowValue]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[intCurrentTableRowValue +1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:LogMessage DisplayName="Log Message - Entering Next Quantity" sap:VirtualizedContainerService.HintSize="358.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_54" Level="Info" Message="[&quot;Entering Next Quantity&quot;]">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:LogMessage>
+                                          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into - Entering Next Quantity" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_25" SimulateType="False" Text="[strNextQuantity.ToString]">
+                                            <ui:TypeInto.Target>
+                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f49dba5-aec0-4a58-89a9-94883d3094a5" InformativeScreenshot="2b8837b51a59f6c59bf6f8352fbe48ff" Selector="[String.Format(&quot;&lt;webctrl tableRow='{0}' colName='*Qty*' /&gt;&quot;, intCurrentTableRowValue)]" WaitForReady="COMPLETE">
+                                                <ui:Target.TimeoutMS>
+                                                  <InArgument x:TypeArguments="x:Int32" />
+                                                </ui:Target.TimeoutMS>
+                                              </ui:Target>
+                                            </ui:TypeInto.Target>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:TypeInto>
+                                          <ui:LogMessage DisplayName="Log Message - Extract the Next Unit Price Value" sap:VirtualizedContainerService.HintSize="358.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_55" Level="Info" Message="[&quot;Extracting Next Unit Price Value&quot;]" />
+                                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text - Next Unit Price Value" sap:VirtualizedContainerService.HintSize="358.666666666667,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                                            <ui:GetValue.Target>
+                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e324f54f-50f4-4864-bf11-0dc0dc7dfba3" InformativeScreenshot="3c75d6b9acf21510434fe10284b0a8ad" Selector="[String.Format(&quot;&lt;webctrl name='price*' tableRow='{0}' colName='Unit Price' /&gt;&quot;, intCurrentTableRowValue)]">
+                                                <ui:Target.TimeoutMS>
+                                                  <InArgument x:TypeArguments="x:Int32" />
+                                                </ui:Target.TimeoutMS>
+                                                <ui:Target.WaitForReady>
+                                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                </ui:Target.WaitForReady>
+                                              </ui:Target>
+                                            </ui:GetValue.Target>
+                                            <ui:GetValue.Value>
+                                              <OutArgument x:TypeArguments="x:String">[strExtractedUnitPriceValue]</OutArgument>
+                                            </ui:GetValue.Value>
+                                          </ui:GetValue>
+                                          <If Condition="[strExtractedUnitPriceValue = strNextUnitPrice.ToString]" DisplayName="If - Next Unit Price Value Matched or Not" sap:VirtualizedContainerService.HintSize="358.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_12">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <If.Then>
+                                              <ui:LogMessage DisplayName="Log Message -  Next Unit Price Value Matched" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_56" Level="Info" Message="[&quot;The value of the Extracted Unit Price matches the value of the Flatfile's Next Unit Price&quot;]" />
+                                            </If.Then>
+                                            <If.Else>
+                                              <ui:LogMessage DisplayName="Log Message - Next Unit Price Value Not Matched" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_57" Level="Info" Message="[&quot;The value of the Extracted Unit Price does not matches the value of the Flatfile's Next Unit Price&quot;]" />
+                                            </If.Else>
+                                          </If>
+                                          <ui:CommentOut DisplayName="Comment Out -  Next Entering Unit Price" sap:VirtualizedContainerService.HintSize="358.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+                                            <ui:CommentOut.Body>
+                                              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into - Entering Unit Price" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_26" SimulateType="False" Text="[strFlatFileUnitPrice]">
+                                                <ui:TypeInto.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f49dba5-aec0-4a58-89a9-94883d3094a5" InformativeScreenshot="6eba7fcbb35d4700b479e3f7652c3c48" Selector="[String.Format(&quot;&lt;webctrl tableRow='{0}' colName='Unit Price' /&gt;&quot;, intCurrentTableRowValue)]" WaitForReady="COMPLETE">
+                                                    <ui:Target.TimeoutMS>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:Target.TimeoutMS>
+                                                  </ui:Target>
+                                                </ui:TypeInto.Target>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:TypeInto>
+                                            </ui:CommentOut.Body>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:CommentOut>
+                                          <ui:LogMessage DisplayName="Log Message - Selecting Next Description_NoTax" sap:VirtualizedContainerService.HintSize="358.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_58" Level="Info" Message="[&quot;Selecting 'No Tax' for Next Description&quot;]">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:LogMessage>
+                                          <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item Next Description_NoTax" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_8" Item="[io_BusinessConfig(&quot;INTELItemDescriptionDropdownValue&quot;).ToString]">
+                                            <ui:SelectItem.Items>
+                                              <scg:List x:TypeArguments="x:String" Capacity="8">
+                                                <x:String>No Tax</x:String>
+                                                <x:String>GST (4%)</x:String>
+                                                <x:String>GST (5%)</x:String>
+                                                <x:String>GST (7%)</x:String>
+                                                <x:String>GST (0%)</x:String>
+                                                <x:String>Tax Exempt (0%)</x:String>
+                                              </scg:List>
+                                            </ui:SelectItem.Items>
+                                            <ui:SelectItem.Target>
+                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7c7888bf-dbde-4aac-bbf6-ed7e665e2c34" InformativeScreenshot="96787dde3e224f0897d0a8020ea2d3f7" Selector="[String.Format(&quot;&lt;webctrl tableRow='{0}' tag='SELECT' colName='Description' /&gt;&quot;, intIncreasedTableRowValue)]" WaitForReady="COMPLETE">
+                                                <ui:Target.TimeoutMS>
+                                                  <InArgument x:TypeArguments="x:Int32" />
+                                                </ui:Target.TimeoutMS>
+                                              </ui:Target>
+                                            </ui:SelectItem.Target>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:SelectItem>
+                                          <ui:LogMessage DisplayName="Log Message - Entering Next Line Amount (Tax Value)" sap:VirtualizedContainerService.HintSize="358.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_59" Level="Info" Message="[&quot;Entering Line Amount (Tax Value)&quot;]">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:LogMessage>
+                                          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into - Next Entering Line Amount (Tax Value)" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_27" SimulateType="False" Text="[strNextTaxAmount.ToString]">
+                                            <ui:TypeInto.Target>
+                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f49dba5-aec0-4a58-89a9-94883d3094a5" InformativeScreenshot="085cc0459285c0221642e0ceed805dd0" Selector="[String.Format(&quot;&lt;webctrl tableRow='{0}' colName='*Line Amt*' /&gt;&quot;, intIncreasedTableRowValue)]" WaitForReady="COMPLETE">
+                                                <ui:Target.TimeoutMS>
+                                                  <InArgument x:TypeArguments="x:Int32" />
+                                                </ui:Target.TimeoutMS>
+                                              </ui:Target>
+                                            </ui:TypeInto.Target>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:TypeInto>
+                                          <ui:AnchorBase AnchorPosition="Right" DisplayName="Anchor Base -  Next Line Items" sap:VirtualizedContainerService.HintSize="358.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="AnchorBase_7">
+                                            <ui:AnchorBase.Action>
+                                              <ActivityAction x:TypeArguments="ui:Anchor">
+                                                <ActivityAction.Argument>
+                                                  <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                                                </ActivityAction.Argument>
+                                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - CheckBox for next  Line Item" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                                  <ui:Click.CursorPosition>
+                                                    <ui:CursorPosition Position="Center">
+                                                      <ui:CursorPosition.OffsetX>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:CursorPosition.OffsetX>
+                                                      <ui:CursorPosition.OffsetY>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:CursorPosition.OffsetY>
+                                                    </ui:CursorPosition>
+                                                  </ui:Click.CursorPosition>
+                                                  <ui:Click.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="85ba8bd5-8b6c-422b-8dac-8b69a2e336ae" InformativeScreenshot="c598faf22d80cebe6a29617f49792aa0" Selector="&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                    </ui:Target>
+                                                  </ui:Click.Target>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:Click>
+                                              </ActivityAction>
+                                            </ui:AnchorBase.Action>
+                                            <ui:AnchorBase.AnchorProvider>
+                                              <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element - Next LineUnder Part" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_7">
+                                                <ui:WaitUiElementAppear.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c7659be4-2b06-4d65-a8ed-30fa0898221f" InformativeScreenshot="bd13bd5326f7e57ac5025ef8cbd4536a" Selector="[String.Format(&quot;&lt;webctrl aaname='{0}' /&gt;&quot;, strNextPartNumber)]" WaitForReady="COMPLETE">
+                                                    <ui:Target.TimeoutMS>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:Target.TimeoutMS>
+                                                  </ui:Target>
+                                                </ui:WaitUiElementAppear.Target>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:WaitUiElementAppear>
+                                            </ui:AnchorBase.AnchorProvider>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:AnchorBase>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </If.Then>
+                              </If>
+                              <Assign DisplayName="Assign - Skip Multiline Row" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[out_SkipMultilineRow]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Sequence - No Multiple Line Item" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message - No Multiple Line Item" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_60" Level="Info" Message="[&quot;No Multiple Line Item&quot;]" />
+                              <Assign DisplayName="Assign - Don't Skip Multiline Row" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[out_SkipMultilineRow]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
                       </Sequence>
-                    </If.Then>
-                    <If.Else>
-                      <Sequence sap:VirtualizedContainerService.HintSize="200,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_35">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Sequence>
-                    </If.Else>
-                  </If>
+                    </ui:InterruptibleWhile.Body>
+                    <ui:InterruptibleWhile.Condition>
+                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="dtNewFlatFileData.RowCount &gt; io_FlatFileRowNumber" />
+                    </ui:InterruptibleWhile.Condition>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InterruptibleWhile>
                 </Sequence>
               </ActivityAction>
             </ui:BrowserScope.Body>
@@ -736,11 +1190,11 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:BrowserScope>
-          <ui:LogMessage DisplayName="Log Message - Multiple Line Items Workflow Ended" sap:VirtualizedContainerService.HintSize="801.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Multiple Line Items Workflow Ended&quot;]" />
+          <ui:LogMessage DisplayName="Log Message - Multiple Line Items Workflow Ended" sap:VirtualizedContainerService.HintSize="564.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Multiple Line Items Workflow Ended&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1024,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="751.333333333333,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
