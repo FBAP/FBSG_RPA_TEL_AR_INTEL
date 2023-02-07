@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>913.333333333333,3254</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>913.333333333333,2990.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateNewInvoices_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="62">
@@ -79,14 +79,14 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to create new invoices and entering the PO number along with additional required data" DisplayName="Sequence - ServiceContractCreateNewInvoices" sap:VirtualizedContainerService.HintSize="923.333333333333,3189.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow is used to create new invoices and entering the PO number along with additional required data" DisplayName="Sequence - ServiceContractCreateNewInvoices" sap:VirtualizedContainerService.HintSize="923.333333333333,2926" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - ServiceContractCreateNewInvoices" sap:VirtualizedContainerService.HintSize="881.333333333333,3066.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - ServiceContractCreateNewInvoices" sap:VirtualizedContainerService.HintSize="881.333333333333,2803.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -94,7 +94,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="ServiceContractCreateNewInvoices" sap:VirtualizedContainerService.HintSize="842.666666666667,2828.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="ServiceContractCreateNewInvoices" sap:VirtualizedContainerService.HintSize="602,2565.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="strSupplierInvoiceDate" />
             <Variable x:TypeArguments="x:String" Name="strShipServiceDate" />
@@ -107,8 +107,8 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message Service Contract Create New Invoices Workflow Started" sap:VirtualizedContainerService.HintSize="800.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Service Contract Create New Invoices Workflow Started&quot;]" />
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Click Create New Invoices" sap:VirtualizedContainerService.HintSize="800.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="951534b1f374410c603ba11b4aea56d3" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          <ui:LogMessage DisplayName="Log Message Service Contract Create New Invoices Workflow Started" sap:VirtualizedContainerService.HintSize="560,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Service Contract Create New Invoices Workflow Started&quot;]" />
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Click Create New Invoices" sap:VirtualizedContainerService.HintSize="560,52.6666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="951534b1f374410c603ba11b4aea56d3" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -150,7 +150,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:BrowserScope>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="800.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="560,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_3">
             <ui:CommentOut.Body>
               <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,308" sap2010:WorkflowViewState.IdRef="Sequence_10">
                 <sap:WorkflowViewStateService.ViewState>
@@ -187,7 +187,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:CommentOut>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="800.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="560,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
             <ui:CommentOut.Body>
               <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,322" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
@@ -227,13 +227,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:CommentOut>
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Create New Invoice" sap:VirtualizedContainerService.HintSize="800.666666666667,2189.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="0bf6514c6c6c5d2181c234df78f94f85" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - Create New Invoice" sap:VirtualizedContainerService.HintSize="560,1926" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="0bf6514c6c6c5d2181c234df78f94f85" Selector="&lt;html app='chrome.exe' title='Intel® Web Invoice' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do - Create New Invoice" sap:VirtualizedContainerService.HintSize="526,2043.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Do - Create New Invoice" sap:VirtualizedContainerService.HintSize="526,1780" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="strConvertedSupplierInvoiceDate" />
                     <Variable x:TypeArguments="x:String" Name="strConvertedShipDate" />
@@ -443,10 +443,10 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Extracted Supplier date is not similar to the FlatFile date" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <Sequence DisplayName="Extracted Supplier date is not similar to the FlatFile date" sap:VirtualizedContainerService.HintSize="376,248.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
@@ -455,53 +455,16 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-                    <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text - Supplier Invoice Date" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[strSupplierInvoiceDate]">
-                          <ui:SetValue.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3aa4880a-de50-4f38-b325-231db9959dbd" InformativeScreenshot="3f31898910e64a6890367e256b5306af" Selector="&lt;webctrl name='inv_dt' /&gt;" WaitForReady="COMPLETE">
-                              <ui:Target.TimeoutMS>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:Target.TimeoutMS>
-                            </ui:Target>
-                          </ui:SetValue.Target>
-                        </ui:SetValue>
-                      </Sequence>
-                    </ui:CommentOut.Body>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:CommentOut>
                   <ui:LogMessage DisplayName="Log Message - Entering Ship Service Date" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Entering Ship Service Date&quot;]" />
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,326.666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_5">
-                    <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text - Ship Service Date" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[strConvertedShipDate]">
-                          <ui:SetValue.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3aa4880a-de50-4f38-b325-231db9959dbd" InformativeScreenshot="76c319d670fa4225936ab19f398ed136" Selector="&lt;webctrl name='ship_dt' /&gt;" WaitForReady="COMPLETE">
-                              <ui:Target.TimeoutMS>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:Target.TimeoutMS>
-                            </ui:Target>
-                          </ui:SetValue.Target>
-                        </ui:SetValue>
-                      </Sequence>
-                    </ui:CommentOut.Body>
-                  </ui:CommentOut>
+                  <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text - Ship Service Date" sap:VirtualizedContainerService.HintSize="484,156" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[strConvertedShipDate]">
+                    <ui:SetValue.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3aa4880a-de50-4f38-b325-231db9959dbd" InformativeScreenshot="76c319d670fa4225936ab19f398ed136" Selector="&lt;webctrl name='ship_dt' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:SetValue.Target>
+                  </ui:SetValue>
                 </Sequence>
               </ActivityAction>
             </ui:BrowserScope.Body>
@@ -512,7 +475,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:BrowserScope>
-          <ui:LogMessage DisplayName="Log Message - Service Contract Create New Invoices Workflow Ended" sap:VirtualizedContainerService.HintSize="800.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Service Contract Create New Invoices Workflow Ended&quot;]" />
+          <ui:LogMessage DisplayName="Log Message - Service Contract Create New Invoices Workflow Ended" sap:VirtualizedContainerService.HintSize="560,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Service Contract Create New Invoices Workflow Ended&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
