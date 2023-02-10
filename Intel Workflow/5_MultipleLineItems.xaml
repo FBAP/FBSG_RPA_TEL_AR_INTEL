@@ -91,7 +91,6 @@
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -206,14 +205,14 @@
                   </Assign>
                   <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[strPartNumberFlatFile &lt;&gt;  intCurrentPartNumber AND (dt_ExtractedDataTable.RowCount &gt; intFirstTableRowValue)]" DisplayName="Do While - Webpage Part Number is matches with FlatFile Part Number" sap:VirtualizedContainerService.HintSize="343.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
                     <ui:InterruptibleDoWhile.Body>
-                      <Sequence DisplayName="Body - Matching Part Number" sap:VirtualizedContainerService.HintSize="376,760.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence DisplayName="Body - Matching Part Number" sap:VirtualizedContainerService.HintSize="526,928.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="aaname" DisplayName="Get Attribute - Part Number" sap:VirtualizedContainerService.HintSize="484,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_5">
+                        <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="aaname" DisplayName="Get Attribute - Part Number" sap:VirtualizedContainerService.HintSize="420,204.666666666667" sap2010:WorkflowViewState.IdRef="GetAttribute_5">
                           <ui:GetAttribute.Result>
                             <OutArgument x:TypeArguments="x:String">[intCurrentPartNumber]</OutArgument>
                           </ui:GetAttribute.Result>
@@ -231,8 +230,8 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:GetAttribute>
-                        <ui:LogMessage DisplayName="Log Message - Matching Part Number" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Validating Webpage Part Number with FlatFile Part Number&quot;]" />
-                        <If Condition="[intCurrentPartNumber = strPartNumberFlatFile]" DisplayName="If - Validating whether Webpage Part Number is similar to Flatfile Part Number or Not" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                        <ui:LogMessage DisplayName="Log Message - Matching Part Number" sap:VirtualizedContainerService.HintSize="420,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Validating Webpage Part Number with FlatFile Part Number&quot;]" />
+                        <If Condition="[intCurrentPartNumber = strPartNumberFlatFile]" DisplayName="If - Validating whether Webpage Part Number is similar to Flatfile Part Number or Not" sap:VirtualizedContainerService.HintSize="420,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -285,8 +284,8 @@
                             </Sequence>
                           </If.Else>
                         </If>
-                        <ui:LogMessage DisplayName="Log Message - Current Row Number" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Row Number is : &quot;+ intFirstTableRowValue.ToString]" />
-                        <Assign DisplayName="Assign - Increment the Default Row Number" sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_14">
+                        <ui:LogMessage DisplayName="Log Message - Current Row Number" sap:VirtualizedContainerService.HintSize="420,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Row Number is : &quot;+ intFirstTableRowValue.ToString]" />
+                        <Assign DisplayName="Assign - Increment the Default Row Number" sap:VirtualizedContainerService.HintSize="420,62" sap2010:WorkflowViewState.IdRef="Assign_14">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Int32">[intFirstTableRowValue]</OutArgument>
                           </Assign.To>
@@ -305,30 +304,14 @@
                   </ui:InterruptibleDoWhile>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 5A_PartNumberMatches workflow" sap:VirtualizedContainerService.HintSize="343.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Intel Workflow\5A_PartNumberMatches.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_boolSimilarPartNumber">
-                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolSimilarPartNumber" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strPartNumberFlatFile">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strPartNumberFlatFile" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intIncreasedTableRowValue">
-                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="intIncreasedTableRowValue" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipNextSteps">
-                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_SkipNextSteps" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">
-                        <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_CurrentRowData" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strExtractedUnitPriceValue">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strExtractedUnitPriceValue" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-                        <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-                      </InOutArgument>
-                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_intCurrentTableRowValue">
-                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="intCurrentTableRowValue" />
-                      </OutArgument>
+                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_boolSimilarPartNumber">[boolSimilarPartNumber]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strPartNumberFlatFile">[strPartNumberFlatFile]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intIncreasedTableRowValue">[intIncreasedTableRowValue]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipNextSteps">[out_SkipNextSteps]</InOutArgument>
+                      <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">[io_CurrentRowData]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strExtractedUnitPriceValue">[strExtractedUnitPriceValue]</InOutArgument>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_intCurrentTableRowValue">[intCurrentTableRowValue]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:MultipleAssign sap2010:Annotation.AnnotationText="-&gt; Reset the Boolean_SiimilarPartNumber to FALSE for next Part Number&#xA;-&gt; Reset the First Row value to 2 for next Part Number" DisplayName="Multiple Assign - Reset some values" sap:VirtualizedContainerService.HintSize="343.333333333333,164.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
@@ -366,7 +349,7 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do - Read Next Line Item Data" sap:VirtualizedContainerService.HintSize="454.666666666667,1066" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                        <Sequence DisplayName="Do - Read Next Line Item Data" sap:VirtualizedContainerService.HintSize="454.666666666667,1106" sap2010:WorkflowViewState.IdRef="Sequence_36">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -380,7 +363,7 @@
                               </InArgument>
                             </ui:ExcelReadRange.Range>
                           </ui:ExcelReadRange>
-                          <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[dt_NewFlatFileData.RowCount &gt; io_FlatFileRowNumber]" DisplayName="While -mFlatFile Data row Count is greater than Current Row Number" sap:VirtualizedContainerService.HintSize="412.666666666667,875.333333333333" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                          <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[dt_NewFlatFileData.RowCount &gt; io_FlatFileRowNumber]" DisplayName="While -mFlatFile Data row Count is greater than Current Row Number" sap:VirtualizedContainerService.HintSize="412.666666666667,915.333333333333" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
                             <ui:InterruptibleWhile.Body>
                               <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,706" sap2010:WorkflowViewState.IdRef="Sequence_45">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -418,7 +401,7 @@
                                     <OutArgument x:TypeArguments="x:Double">[strNextPartNumber]</OutArgument>
                                   </ui:ExcelReadCell.Result>
                                 </ui:ExcelReadCell>
-                                <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                <ui:Break DisplayName="Break - Flat FIle Values" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_3" />
                               </Sequence>
                             </ui:InterruptibleWhile.Body>
                             <sap:WorkflowViewStateService.ViewState>
@@ -441,52 +424,22 @@
                   </ui:ExcelApplicationScope>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 5B_FlatFileRowIteration workflow" sap:VirtualizedContainerService.HintSize="343.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Intel Workflow\5B_FlatFileRowIteration.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_FlatFileRowNumber">
-                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_FlatFileRowNumber" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_NewFlatFileData">
-                        <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_NewFlatFileData" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">
-                        <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_CurrentRowData" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strNextPONumber">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strNextPONumber" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strNextOrderCategory">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strNextOrderCategory" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_ExtractedDataTable">
-                        <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_ExtractedDataTable" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Double" x:Key="io_doubleNextPartNumber">
-                        <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="strNextPartNumber" />
-                      </InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_FlatFileRowNumber">[io_FlatFileRowNumber]</InOutArgument>
+                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_NewFlatFileData">[dt_NewFlatFileData]</InOutArgument>
+                      <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">[io_CurrentRowData]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strNextPONumber">[strNextPONumber]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strNextOrderCategory">[strNextOrderCategory]</InOutArgument>
+                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_ExtractedDataTable">[dt_ExtractedDataTable]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Double" x:Key="io_doubleNextPartNumber">[strNextPartNumber]</InOutArgument>
                       <InOutArgument x:TypeArguments="x:String" x:Key="io_strCurrentPartNumber" />
-                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_boolSimilarPartNumber">
-                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolSimilarPartNumber" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipMultilineRow">
-                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="io_SkipMultilineRow" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intCurrentTableRowValue">
-                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="intCurrentTableRowValue" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipNextSteps">
-                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_SkipNextSteps" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intIncreasedTableRowValue">
-                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="intIncreasedTableRowValue" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strExtractedUnitPriceValue">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strExtractedUnitPriceValue" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-                        <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-                      </InOutArgument>
-                      <InOutArgument x:TypeArguments="x:Double" x:Key="io_doubleNextUnitPrice">
-                        <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="strNextUnitPrice" />
-                      </InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_boolSimilarPartNumber">[boolSimilarPartNumber]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipMultilineRow">[io_SkipMultilineRow]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intCurrentTableRowValue">[intCurrentTableRowValue]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipNextSteps">[out_SkipNextSteps]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intIncreasedTableRowValue">[intIncreasedTableRowValue]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_strExtractedUnitPriceValue">[strExtractedUnitPriceValue]</InOutArgument>
+                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:Double" x:Key="io_doubleNextUnitPrice">[strNextUnitPrice]</InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>

@@ -7,8 +7,8 @@
     <x:Property Name="io_strPONumber" Type="InOutArgument(x:String)" />
     <x:Property Name="io_TransactionNumber" Type="InOutArgument(x:Int32)" />
     <x:Property Name="io_strInvoiceType" Type="InOutArgument(x:String)" />
-    <x:Property Name="io_dtFlatFileData" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_strArrayFlatFilePath" Type="InOutArgument(s:String[])" />
+    <x:Property Name="io_dt_FlatFileData" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -123,7 +123,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="This Loop is used to read the data as a row by row from the downloaded Flatfiles." DataTable="[io_DTFlatFileData]" DisplayName="For Each Row in Data Table - FlatFile Data" sap:VirtualizedContainerService.HintSize="434,472" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="This Loop is used to read the data as a row by row from the downloaded Flatfiles." DataTable="[io_dt_FlatFileData]" DisplayName="For Each Row in Data Table - FlatFile Data" sap:VirtualizedContainerService.HintSize="434,472" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                 <ui:ForEachRow.Body>
                   <ActivityAction x:TypeArguments="sd:DataRow">
                     <ActivityAction.Argument>

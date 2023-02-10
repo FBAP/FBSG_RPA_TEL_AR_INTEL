@@ -66,7 +66,6 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="IntelServiceContract_InvokeAllWorkflows" sap:VirtualizedContainerService.HintSize="421.333333333333,1245.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -82,50 +81,26 @@
     <ui:LogMessage DisplayName="Log Message Intel Service Contract Invoke All Workflows Stared" sap:VirtualizedContainerService.HintSize="379.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Intel Service Contract Invoke All Workflows Stared&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 1_CheckIntelPortalAccessibility workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Intel Workflow\1_CheckIntelPortalAccessibility.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InOutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_SelectorBrowserApp">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="SelectorBrowserApp" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_SelectorBrowserUrl">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="SelectorBrowserUrl" />
-        </OutArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_SelectorBrowserApp">[SelectorBrowserApp]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_SelectorBrowserUrl">[SelectorBrowserUrl]</OutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 2_LoginIntelPortal workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Intel Workflow\2_LoginIntelPortal.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserApp" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserUrl" />
-        </InArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">[SelectorBrowserApp]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">[SelectorBrowserUrl]</InArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 3_IntelWebInvoice workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Intel Workflow\3_IntelWebInvoice.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InOutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserApp" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SelectorBrowserUrl" />
-        </InArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserApp">[SelectorBrowserApp]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SelectorBrowserUrl">[SelectorBrowserUrl]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 1_ServiceContractCreateNewInvoices workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Service Contract Workflow\1_ServiceContractCreateNewInvoices.xaml">
@@ -137,9 +112,15 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 2_ServiceContractMultipleLineItems workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Service Contract Workflow\2_ServiceContractMultipleLineItems.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
-        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">[io_CurrentRowData]</InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
+          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
+          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRowData">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="io_CurrentRowData" />
+        </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 3_ServiceContractInvoiceGSTReporting workflow" sap:VirtualizedContainerService.HintSize="379.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Service Contract Workflow\3_ServiceContractInvoiceGSTReporting.xaml">

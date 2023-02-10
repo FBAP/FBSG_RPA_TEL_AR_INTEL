@@ -99,7 +99,7 @@
       <Variable x:TypeArguments="x:String" Name="strPONumber" />
       <Variable x:TypeArguments="x:String" Name="strInvoiceType" />
       <Variable x:TypeArguments="x:String" Name="strFlatFileName" />
-      <Variable x:TypeArguments="sd:DataTable" Name="prefixDTFlatFileData" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_FlatFileData" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -145,8 +145,8 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_strInvoiceType">
           <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strInvoiceType" />
         </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtFlatFileData">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="prefixDTFlatFileData" />
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_FlatFileData">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_FlatFileData" />
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
@@ -178,11 +178,11 @@
         <InOutArgument x:TypeArguments="x:String" x:Key="io_strInvoiceType">
           <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strInvoiceType" />
         </InOutArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtFlatFileData">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="prefixDTFlatFileData" />
-        </InOutArgument>
         <InOutArgument x:TypeArguments="s:String[]" x:Key="io_strArrayFlatFilePath">
           <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="strArrayFlatFilePath" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_FlatFileData">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_FlatFileData" />
         </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
