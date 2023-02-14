@@ -72,6 +72,7 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Sequence - SelectingMultipleCheckbox" sap:VirtualizedContainerService.HintSize="744.666666666667,3805.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -338,9 +339,14 @@
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 2B_ServiceContractRemainingLineAmount_Asterisk workflow" sap:VirtualizedContainerService.HintSize="622,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Service Contract Workflow\2C_ServiceContractRemainingLineAmount_Asterisk.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke 2C_ServiceContractRemainingLineAmount_Asterisk workflow" sap:VirtualizedContainerService.HintSize="622,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Service Contract Workflow\2C_ServiceContractRemainingLineAmount_Asterisk.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_RemainingLineAmount">[strRemainingLineAmount]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_RemainingLineAmount">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strRemainingLineAmount" />
+              </OutArgument>
+              <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
+                <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
+              </InOutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <If sap2010:Annotation.AnnotationText="Changing the Format of Extracted Total Amount.&#xA;Ex: Removing the comma (,) if present" Condition="[strRemainingLineAmount.Contains(&quot;,&quot;)]" DisplayName="If - Removing the Comma from Extracted Total Amount" sap:VirtualizedContainerService.HintSize="622,131.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
@@ -575,13 +581,34 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Sequence for Exception" sap:VirtualizedContainerService.HintSize="376,248.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Sequence - Exception in SelectingMultipleCheckbox" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message - Issue Occured in SelectingMultipleCheckbox" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;ssue Occured in SelectingMultipleCheckbox&quot;]" />
+              <ui:LogMessage DisplayName="Log Message - Issue Occured in SelectingMultipleCheckbox" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Issue Occured in SelectingMultipleCheckbox&quot;]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendExceptionEmail workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Other Wokflow\SendExceptionEmail.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Subject">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailSubject&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Body">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;SelectingMultipleCheckboxExceptionMailBody&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CcEmailList">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailRecipientsCCList&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RecipientsEmailList">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailRecipientsList&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExceptionAttachmentPath" />
+                  <InArgument x:TypeArguments="x:String" x:Key="in_SentOnBehalfOfName">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailSenderName&quot;).ToString" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
               <Rethrow DisplayName="Rethrow - Selecting Multiple Checkbox" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
             </Sequence>
           </ActivityAction>

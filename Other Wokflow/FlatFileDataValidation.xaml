@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>792.666666666667,1626.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>734.666666666667,1630</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FlatFileDataValidation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -79,15 +79,15 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence - FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="802.666666666667,1562" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Sequence - FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="744.666666666667,1565.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="760.666666666667,1470" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="702.666666666667,1473.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="722,1232" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="664,1235.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="strFlatFileName" />
             <Variable x:TypeArguments="x:Int32" Name="intFlatFileRowNumber" />
@@ -97,8 +97,8 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message - FlatFileDataValidation Workflow Started" sap:VirtualizedContainerService.HintSize="680,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;FlatFile Data Validation Workflow Started&quot;]" />
-          <Assign DisplayName="Assign - Initialize intFlatFileRowNumber" sap:VirtualizedContainerService.HintSize="680,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <ui:LogMessage DisplayName="Log Message - FlatFileDataValidation Workflow Started" sap:VirtualizedContainerService.HintSize="622,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;FlatFile Data Validation Workflow Started&quot;]" />
+          <Assign DisplayName="Assign - Initialize intFlatFileRowNumber" sap:VirtualizedContainerService.HintSize="622,62" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[intFlatFileRowNumber]</OutArgument>
             </Assign.To>
@@ -106,7 +106,7 @@
               <InArgument x:TypeArguments="x:Int32">1</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign - Skip Multiline Row Default Value" sap:VirtualizedContainerService.HintSize="680,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign DisplayName="Assign - Skip Multiline Row Default Value" sap:VirtualizedContainerService.HintSize="622,62" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">[io_SkipMultilineRow]</OutArgument>
             </Assign.To>
@@ -114,7 +114,7 @@
               <InArgument x:TypeArguments="x:Boolean">False</InArgument>
             </Assign.Value>
           </Assign>
-          <If sap2010:Annotation.AnnotationText="This 'IF' statement is used to check weather the flatfile is blank or not. " Condition="[(io_intDataRowCount &gt; 1) and (io_strPONumber IsNot Nothing) and (io_strInvoiceType IsNot Nothing)]" DisplayName="If - DataTable is Blank/Empty or not" sap:VirtualizedContainerService.HintSize="680,666.666666666667" sap2010:WorkflowViewState.IdRef="If_5">
+          <If sap2010:Annotation.AnnotationText="This 'IF' statement is used to check weather the flatfile is blank or not. " Condition="[(io_intDataRowCount &gt; 1) and (io_strPONumber IsNot Nothing) and (io_strInvoiceType IsNot Nothing)]" DisplayName="If - DataTable is Blank/Empty or not" sap:VirtualizedContainerService.HintSize="622,670" sap2010:WorkflowViewState.IdRef="If_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -123,7 +123,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="This Loop is used to read the data as a row by row from the downloaded Flatfiles." DataTable="[io_dt_FlatFileData]" DisplayName="For Each Row in Data Table - FlatFile Data" sap:VirtualizedContainerService.HintSize="434,472" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="This Loop is used to read the data as a row by row from the downloaded Flatfiles." DataTable="[io_dt_FlatFileData]" DisplayName="For Each Row in Data Table - FlatFile Data" sap:VirtualizedContainerService.HintSize="200,114.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                 <ui:ForEachRow.Body>
                   <ActivityAction x:TypeArguments="sd:DataRow">
                     <ActivityAction.Argument>
@@ -145,27 +145,13 @@
                       </Assign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SkipMultilineRow workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Other Wokflow\SkipMultilineRow.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipMultilineRow">
-                            <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="io_SkipMultilineRow" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intFlatFileRowNumber">
-                            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="intFlatFileRowNumber" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRow">
-                            <mva:VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="CurrentRow" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-                            <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-                            <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">
-                            <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_TransactionNumber" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="s:String[]" x:Key="io_strArrayFlatFilePath">
-                            <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="io_strArrayFlatFilePath" />
-                          </InOutArgument>
+                          <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipMultilineRow">[io_SkipMultilineRow]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intFlatFileRowNumber">[intFlatFileRowNumber]</InOutArgument>
+                          <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_CurrentRow">[CurrentRow]</InOutArgument>
+                          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+                          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[io_TransactionNumber]</InOutArgument>
+                          <InOutArgument x:TypeArguments="s:String[]" x:Key="io_strArrayFlatFilePath">[io_strArrayFlatFilePath]</InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -174,30 +160,50 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ForEachRow>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Sequence - FlatFile is Blank" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence DisplayName="Sequence - FlatFile is Blank" sap:VirtualizedContainerService.HintSize="376,475.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:LogMessage DisplayName="Log Message - FlatFile is Blank" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;FlatFile is blank for client : &quot; + strFlatFileName]" />
-                <ui:LogMessage DisplayName="Log Message Send a Notification Email " sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Warn" Message="[&quot;Send a Notifocation Email to the client that &quot;+strFlatFileName + &quot; does not contain data&quot;]" />
+                <ui:LogMessage DisplayName="Log Message Send a Notification Email " sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Warn" Message="[&quot;Sending a Notifocation Email to the client that &quot;+strFlatFileName + &quot; does not contain data&quot;]" />
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendExceptionEmail workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Other Wokflow\SendExceptionEmail.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Subject">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailSubject&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_Body">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFlatFileName+io_BusinessConfig(&quot;FlatFileDataValidationBlankFileEmailBody&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_CcEmailList">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailRecipientsCCList&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_RecipientsEmailList">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailRecipientsList&quot;).ToString" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ExceptionAttachmentPath" />
+                    <InArgument x:TypeArguments="x:String" x:Key="in_SentOnBehalfOfName">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailSenderName&quot;).ToString" />
+                    </InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
               </Sequence>
             </If.Else>
           </If>
-          <ui:LogMessage DisplayName="Log Message - FlatFileDataValidation Workflow Ended" sap:VirtualizedContainerService.HintSize="680,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;FlatFile Data Validation Workflow Ended&quot;]" />
+          <ui:LogMessage DisplayName="Log Message - FlatFileDataValidation Workflow Ended" sap:VirtualizedContainerService.HintSize="622,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;FlatFile Data Validation Workflow Ended&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="726.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="668.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -208,7 +214,35 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Message - Issue Occured in FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Issue Occured in FlatFile Data Validation&quot;]" />
+            <Sequence DisplayName="Sequence - Exception in FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="376,402.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - Issue Occured in FlatFileDataValidation" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Issue Occured in FlatFile Data Validation&quot;]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendExceptionEmail workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Other Wokflow\SendExceptionEmail.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Subject">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailSubject&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Body">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;FlatFileDataValidationExceptionEmailBody&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CcEmailList">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailRecipientsCCList&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RecipientsEmailList">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailRecipientsList&quot;).ToString" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExceptionAttachmentPath" />
+                  <InArgument x:TypeArguments="x:String" x:Key="in_SentOnBehalfOfName">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_BusinessConfig(&quot;BusinessConfigNotificationEmailSenderName&quot;).ToString" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Throw DisplayName="Throw - FlatFileDataValidation" Exception="[New Exception (&quot;Issue Occured in Flat File Data Validation&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>

@@ -157,33 +157,15 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke FlatFileDataValidation workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Other Wokflow\FlatFileDataValidation.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipMultilineRow">
-          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="io_SkipMultilineRow" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_BusinessConfig" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">
-          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="io_Config" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intDataRowCount">
-          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="intDataRowCount" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="x:String" x:Key="io_strPONumber">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strPONumber" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">
-          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_TransactionNumber" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="x:String" x:Key="io_strInvoiceType">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strInvoiceType" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="s:String[]" x:Key="io_strArrayFlatFilePath">
-          <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="strArrayFlatFilePath" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_FlatFileData">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_FlatFileData" />
-        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_SkipMultilineRow">[io_SkipMultilineRow]</InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_BusinessConfig">[io_BusinessConfig]</InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="io_Config">[io_Config]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intDataRowCount">[intDataRowCount]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_strPONumber">[strPONumber]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[io_TransactionNumber]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_strInvoiceType">[strInvoiceType]</InOutArgument>
+        <InOutArgument x:TypeArguments="s:String[]" x:Key="io_strArrayFlatFilePath">[strArrayFlatFilePath]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_FlatFileData">[dt_FlatFileData]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message Process Ended" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Process Workflow Ended&quot;]" />
